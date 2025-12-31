@@ -187,20 +187,22 @@ Create new role file following template in `00-index.md`.
 
 ### If Using Submodule
 
-Your customizations go in `.github/`, submodule stays read-only:
+When using as a submodule, you have two options:
 
+**Option 1: Use directly (simplest)**
 ```
-.github/
-├── copilot-instructions.md     # YOUR version
+.github/                        # Submodule (stays in sync)
+├── copilot-instructions.md     # From submodule
 ├── workflows/
-│   └── test.yml                # YOUR version
-├── ISSUE_TEMPLATE/             # From submodule (or customize)
-└── workflow-system/            # Reference from submodule
-
-.github-templates/              # Submodule (read-only)
-└── .github/
-    └── workflow-system/
+│   └── test.yml                # From submodule
+├── ISSUE_TEMPLATE/             # From submodule
+└── workflow-system/            # From submodule
 ```
+
+**Option 2: Fork & customize (for extensive changes)**
+- Fork the repository
+- Add your fork as the submodule
+- Customize freely while keeping git tracking
 
 ### If Copied
 

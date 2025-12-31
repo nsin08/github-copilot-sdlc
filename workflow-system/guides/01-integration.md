@@ -26,18 +26,22 @@ git commit -m "Add workflow system"
 git push
 ```
 
-### Method 2: Git Submodule
+### Method 2: Git Submodule (Recommended for Staying Updated)
 
 ```bash
-# Add as submodule
-git submodule add <repo-url> .github-templates
-
-# Copy to .github
-cp -r .github-templates/.github .
+# Add as submodule directly to .github
+git submodule add https://github.com/nsin08/github-copilot-sdlc.git .github
+git submodule update --init --recursive
 
 # Commit
 git add .github .gitmodules
-git commit -m "Add workflow system via submodule"
+git commit -m "Add SDLC workflow template system"
+git push
+
+# Update later
+git submodule update --remote --merge .github
+git add .github
+git commit -m "Update SDLC workflow template system"
 ```
 
 ### Method 3: Selective Copy

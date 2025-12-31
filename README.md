@@ -31,20 +31,12 @@
 # Navigate to your project root
 cd your-project/
 
-# Add as submodule in .github-templates directory
-git submodule add https://github.com/nsin08/github-copilot-sdlc.git .github-templates
-
-# Copy templates to your .github directory
-mkdir -p .github
-cp -r .github-templates/ISSUE_TEMPLATE .github/
-cp .github-templates/copilot-instructions.md .github/
-cp -r .github-templates/workflows .github/
-
-# Optional: Copy workflow-system docs for reference
-cp -r .github-templates/workflow-system .github/
+# Add as submodule directly to .github directory
+git submodule add https://github.com/nsin08/github-copilot-sdlc.git .github
+git submodule update --init --recursive
 
 # Commit
-git add .github .github-templates .gitmodules
+git add .github .gitmodules
 git commit -m "Add SDLC workflow template system"
 git push
 ```
@@ -53,10 +45,12 @@ git push
 
 ```bash
 cd your-project/
-git submodule update --remote .github-templates
+git submodule update --remote --merge .github
+
 # Review changes, then commit
-git add .github-templates
-git commit -m "Update workflow template to latest version"
+git add .github
+git commit -m "Update SDLC workflow template system"
+git push
 ```
 
 **Benefits of using as submodule:**
@@ -169,16 +163,12 @@ flowchart TD
 **Option A: Via Submodule (Recommended)**
 
 ```bash
-# Add as submodule
-git submodule add https://github.com/nsin08/github-copilot-sdlc.git .github-templates
-
-# Copy to your .github directory
-cp -r .github-templates/ISSUE_TEMPLATE .github/
-cp .github-templates/copilot-instructions.md .github/
-cp -r .github-templates/workflows .github/
+# Add as submodule directly to .github
+git submodule add https://github.com/nsin08/github-copilot-sdlc.git .github
+git submodule update --init --recursive
 ```
 
-**Option B: Direct Copy**
+**Option B: Direct Copy (Fork & Modify)**
 
 ```bash
 # Copy directory
