@@ -6,15 +6,24 @@ Trunk-based development with feature branches and optional develop branch for st
 
 **Philosophy:** Keep branches short-lived, integrate frequently, release from stable branches.
 
-**Model:** Trunk-based development with feature isolation
+**Model:** Git Flow inspired with trunk-based flexibility
 
 ```
-main (production-ready)
+main (production-ready, tagged releases)
   ↑
-develop (integration/staging) [optional]
-  ↑
-feature/*, fix/*, chore/*, docs/* (short-lived)
+  ├── hotfix/* (emergency fixes)
+  └── release/* (release stabilization) [optional]
+        ↑
+      develop (integration/staging) [optional]
+        ↑
+      feature/*, fix/*, chore/*, docs/* (short-lived)
 ```
+
+**Branch Hierarchy:**
+- **Long-lived:** `main`, `develop` (optional)
+- **Medium-lived:** `release/*` (days to weeks, optional)
+- **Short-lived:** `feature/*`, `fix/*`, `chore/*`, `docs/*` (hours to days)
+- **Emergency:** `hotfix/*` (hours, fast-track)
 
 ---
 
@@ -67,14 +76,84 @@ Restrict deletions: true
 feature/123-new-thing → develop → main
 ```
 
-### 3. Feature Branches (Short-lived)
+### 3. Release Branches (`release/*`) [Optional]
+
+**Purpose:** Prepare and stabilize release candidates  
+**Pattern:** `release/<version>` or `release/v<version>`  
+**Example:** `release/v1.2.0`, `release/1.2.0`
+
+**Use When:**
+- You need release testing/QA cycle
+- Multiple features bundled in versioned releases
+- You have staging/pre-production environment
+- Release requires final hardening (version bumps, changelog, etc.)
+
+**Don't Use When:**
+- Continuous deployment (use develop → main)
+- Hotfixes (use dedicated hotfix branches)
+
+**Lifecycle:**
+1. Branch from `develop` when feature-complete
+2. Stabilize: only bug fixes, no new features
+3. Merge to both `main` AND back to `develop`
+4. Tag release on `main`
+5. Delete release branch
+
+**Rules:**
+- ✅ Branch from `develop` when ready for release
+- ✅ Only bug fixes allowed (no new features)
+- ✅ Must merge to both `main` AND `develop`
+- ✅ Delete after successful release
+- ❌ No feature work
+- ❌ Don't branch other features from release branch
+
+**Flow:**
+```bash
+develop ──→ release/v1.2.0 ──→ main (tag v1.2.0)
+                    └──────→ develop (backport fixes)
+```
+
+### 4. Hotfix Branches (`hotfix/*`)
+
+**Purpose:** Emergency fixes for production  
+**Pattern:** `hotfix/<issue-id>-<description>` or `hotfix/v<version>`  
+**Example:** `hotfix/999-security-patch`, `hotfix/v1.2.1`
+
+**Use When:**
+- Critical production bug
+- Security vulnerability
+- Data corruption issue
+- Cannot wait for normal release cycle
+
+**Lifecycle:**
+1. Branch from `main` (production)
+2. Fix the issue
+3. Merge to both `main` AND `develop`
+4. Tag patch release on `main`
+5. Delete hotfix branch
+
+**Rules:**
+- ✅ Branch from `main` (not develop)
+- ✅ Fast-track review and merge
+- ✅ Must merge to both `main` AND `develop`
+- ✅ Create patch version (1.2.0 → 1.2.1)
+- ❌ Only critical fixes
+- ❌ No feature work
+
+**Flow:**
+```bash
+main ──→ hotfix/v1.2.1 ──→ main (tag v1.2.1)
+                  └────→ develop (backport fix)
+```
+
+### 5. Feature Branches (Short-lived)
 
 **Pattern:** `<type>/<issue-id>-<short-description>`
 
 | Type | Purpose | Example |
 |------|---------|---------|
 | `feature/` | New functionality | `feature/15-health-endpoint` |
-| `fix/` | Bug fixes | `fix/42-null-pointer` |
+| `fix/` | Bug fixes (non-critical) | `fix/42-null-pointer` |
 | `chore/` | Maintenance | `chore/50-update-deps` |
 | `docs/` | Documentation | `docs/55-api-readme` |
 | `refactor/` | Code restructuring | `refactor/60-service-layer` |
@@ -148,34 +227,81 @@ git tag v1.2.0
 git push origin main --tags
 ```
 
-### Workflow 3: Hotfix (Emergency)
+### Workflow 3: Release Branch (Staged Release)
 
-**For production bugs requiring immediate fix**
+**For coordinated releases requiring stabilization**
 
 ```bash
-# Branch from main
+# When develop is feature-complete for v1.2.0
+git checkout develop
+git pull
+git checkout -b release/v1.2.0
+
+# Stabilization: bump version, update changelog
+echo "1.2.0" > VERSION
+git add VERSION
+git commit -m "chore: bump version to 1.2.0"
+
+# Only bug fixes allowed during stabilization
+git commit -m "fix: resolve edge case in validation"
+
+# Push release branch
+git push -u origin release/v1.2.0
+
+# After QA approval, merge to main
 git checkout main
 git pull
-git checkout -b fix/999-critical-bug
+git merge release/v1.2.0
+git tag v1.2.0
+git push origin main --tags
 
-# Fix
-# ... fix the bug ...
-git commit -m "fix: resolve critical security issue"
-git push -u origin fix/999-critical-bug
+# Backport to develop
+git checkout develop
+git merge release/v1.2.0
+git push
+
+# Delete release branch
+git branch -d releasType | Branch Name | PR Title |
+|----------|-------------|-------------|----------|
+| Story #15 | Feature | `feature/15-health-endpoint` | `feat(health): Add health endpoint (#15)` |
+| Bug #42 | Fix | `fix/42-null-pointer` | `fix(auth): Handle null user (#42)` |
+| Release v1.2.0 | Release | `release/v1.2.0` | `release: Version 1.2.0` |
+| Hotfix #999 | Hotfix | `hotfix/999-security-patch` | `fix: Critical security patch (#999)` |
+| Dependencies | Chore | `chore/50-update-deps` | `chore: Update dependencies (#50)` |
+| API docs | Docs | `docs/55-api-readme` | `docs: Add API usage guide (#55)` |
+| Refactoring | Refactorl bugs requiring immediate fix**
+
+```bash
+# Branch from main (production code)
+git checkout main
+git pull
+git checkout -b hotfix/999-critical-security
+
+# Fix the issue
+# ... make the fix ...
+git commit -m "fix: patch critical security vulnerability"
+git push -u origin hotfix/999-critical-security
 
 # Fast-track PR to main
-gh pr create --base main --label "hotfix"
+gh pr create --base main --label "hotfix" --label "priority:critical"
 
-# After merge, create patch release
+# After approval and merge to main
 git checkout main
 git pull
+
+# Create patch release
 git tag v1.2.1
 git push origin main --tags
 
-# Backport to develop if it exists
+# Backport to develop
 git checkout develop
+git pull
 git merge main
 git push
+
+# Delete hotfix branch
+git branch -d hotfix/999-critical-security
+git push origin --delete hotfix/999-critical-security
 ```
 
 ---
@@ -207,12 +333,14 @@ git push
 
 ### ❌ Don't
 
-- **Long-lived branches:** Merge within 1-5 days
-- **Branch from branches:** Feature → develop/main only
+- **Long-lived feature branches:** Merge within 1-5 days
+- **Branch from branches:** Feature → develop/main only (not from other features)
 - **Hoard changes:** Don't wait for "perfect"
 - **Force push:** After others have pulled (use `--force-with-lease`)
 - **Bypass PRs:** Even for "small" changes
 - **Work on main/develop:** Always use feature branches
+- **Features in release branches:** Only bug fixes during stabilization
+- **Forget to backport:** Hotfixes and release fixes must go to both main AND develop
 
 ---
 
@@ -389,10 +517,12 @@ git push origin --delete feature/123-abandoned
 # Close/comment on issue
 gh issue comment 123 --body "Abandoned, see #124 for new approach"
 gh issue close 123
-```
-
----
-
+```Start release** | `git checkout develop && git pull && git checkout -b release/v1.2.0` |
+| **Start hotfix** | `git checkout main && git pull && git checkout -b hotfix/999-name` |
+| **Update from base** | `git fetch && git rebase origin/develop` |
+| **Create PR** | `gh pr create --base develop` |
+| **Merge PR** | `gh pr merge --squash --delete-branch` |
+| **Tag release** | `git tag v1.2.0 && git push origin main --tags
 ## Quick Reference
 
 | Action | Command |
