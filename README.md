@@ -256,6 +256,120 @@ gh pr create
 
 ---
 
+## Role-Based Prompts for Testing
+
+Use these prompts in separate VS Code Copilot Chat threads to simulate different roles:
+
+### 🎯 Sponsor/PO Role
+
+**Setup Prompt:**
+```
+I'm acting as a Product Owner / Sponsor. Load context from @workspace .github/workflow-system/roles/01-sponsor-po.md
+
+I need to create ideas with clear success criteria, validate Epic breakdowns, and approve specifications before implementation.
+```
+
+**Action Examples:**
+- "Create an Idea issue for a personal calendar application"
+- "Review Epic #1 and validate if it meets user needs"
+- "Approve Story #3 - does it have clear success criteria?"
+
+---
+
+### 🏗️ Tech Lead Role
+
+**Setup Prompt:**
+```
+I'm acting as a Technical Lead. Load context from @workspace .github/workflow-system/roles/02-tech-lead.md
+
+I need to break down Ideas into Epics and Stories, define technical architecture, and ensure Definition of Ready is met.
+```
+
+**Action Examples:**
+- "Break down Idea #2 into an Epic with Stories"
+- "Create Story issues for Epic #1"
+- "Review Story #5 for technical feasibility"
+- "Define architecture approach for the calendar data model"
+
+---
+
+### 💻 Implementer Role
+
+**Setup Prompt:**
+```
+I'm acting as an Implementer. Load context from @workspace .github/workflow-system/roles/03-implementer.md
+
+I need to implement Stories, write tests, create PRs, and ensure Definition of Done is met.
+```
+
+**Action Examples:**
+- "Implement Story #7 - calendar event data model"
+- "Create a PR for Story #8 with all evidence"
+- "Write tests for the event persistence feature"
+- "Review PR checklist before submitting"
+
+---
+
+### ✅ Reviewer/QA Role
+
+**Setup Prompt:**
+```
+I'm acting as a Reviewer / QA. Load context from @workspace .github/workflow-system/roles/04-reviewer-qa.md
+
+I need to review PRs against success criteria, validate tests, and ensure quality standards are met.
+```
+
+**Action Examples:**
+- "Review PR #12 against Story #8 success criteria"
+- "Check if PR #15 meets Definition of Done"
+- "Validate test coverage for the calendar UI"
+- "Request changes for PR #10"
+
+---
+
+### 🚀 Release/DevOps Role
+
+**Setup Prompt:**
+```
+I'm acting as Release Manager / DevOps. Load context from @workspace .github/workflow-system/roles/05-release-devops.md
+
+I need to tag releases, generate release notes, close Epics, and manage deployment.
+```
+
+**Action Examples:**
+- "Create release v0.1.0 with all merged PRs"
+- "Generate release notes for Epic #1"
+- "Close Epic #1 after release"
+- "Tag and deploy the calendar application"
+
+---
+
+### 🧪 Multi-Role Testing Setup
+
+**Using 2 VS Code Windows:**
+
+**Window 1 - Planning Roles (PO + Tech Lead):**
+```
+Thread 1: PO - Create Ideas and validate Epics
+Thread 2: Tech Lead - Break down into Stories
+```
+
+**Window 2 - Execution Roles (Implementer + QA):**
+```
+Thread 1: Implementer - Build features and create PRs
+Thread 2: QA - Review PRs and validate quality
+```
+
+**Example Workflow:**
+1. **PO (Window 1, Thread 1):** "Create Idea issue for personal calendar"
+2. **Tech Lead (Window 1, Thread 2):** "Break down Idea #1 into Epic + Stories"
+3. **PO (Window 1, Thread 1):** "Review and approve Epic #2"
+4. **Implementer (Window 2, Thread 1):** "Implement Story #3"
+5. **QA (Window 2, Thread 2):** "Review PR #5 for Story #3"
+6. **Release (either window):** "Create release v0.1.0"
+
+---
+
 ## Quick Navigation
 
 | Need | Location |
