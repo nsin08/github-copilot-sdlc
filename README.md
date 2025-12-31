@@ -1,21 +1,67 @@
-# .github - Role-Based Workflow System
+# GitHub Copilot SDLC Workflow System
 
-**Version:** 1.0  
-**Status:** ✅ Production Ready
+<div align="center">
 
-> **🎯 Designed for Submodule Use:** This repository contains a complete SDLC workflow template system that can be integrated into any GitHub project as a submodule. See [Quick Start](#quick-start) for integration instructions.
+**A Role-Based Software Development Lifecycle Framework for GitHub**
+
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/nsin08/github-copilot-sdlc/releases)
+[![Status](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://github.com/nsin08/github-copilot-sdlc)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+[Quick Start](#quick-start) • [Documentation](#directory-structure) • [Role Guides](#quick-navigation) • [Examples](#role-based-prompts-for-testing)
+
+</div>
+
+---
+
+## 📋 Overview
+
+### Purpose
+
+Provide a **structured, AI-assisted software development workflow** that transforms idea-to-release cycles into a traceable, role-based process. Designed for teams (or individuals wearing multiple hats) who want to leverage GitHub Copilot and GitHub's native features to maintain discipline without heavy tooling overhead.
+
+### Goal
+
+Enable **consistent, high-quality software delivery** by:
+- Defining clear responsibilities across 5 key roles (PO, Tech Lead, Implementer, QA, Release)
+- Enforcing quality gates through Definition of Ready and Definition of Done
+- Maintaining complete traceability from idea → story → PR → release
+- Providing AI assistant context for "touchless" or low-touch development
+
+### Methodology
+
+**Git Flow inspired, trunk-based flexible approach:**
+- **Issue-driven development:** Every change starts with a GitHub issue
+- **Template-guided creation:** Standardized templates ensure completeness
+- **Role-based review gates:** Each stage has specific validation criteria
+- **Branch strategy:** Feature branches → develop → release → main with proper versioning
+- **AI-augmented workflow:** Copilot Chat prompts guide each role's responsibilities
+
+### Expected Outcomes
+
+✅ **Reduced ambiguity** - Clear success criteria for every feature  
+✅ **Faster onboarding** - New team members follow templates and role guides  
+✅ **Better quality** - Automated checks, required tests, and review checklists  
+✅ **Complete traceability** - Know why every line of code exists  
+✅ **Consistent releases** - Standardized versioning and changelog generation  
+✅ **AI efficiency** - Copilot can generate entire features following your standards  
+
+### Integration Method
+
+**Submodule-based distribution** - Add this workflow to any project as a Git submodule in the `.github` directory. GitHub automatically recognizes issue templates and workflows. Track specific branches (main, develop, release) or pin to exact versions for stability.
 
 ---
 
 ## Table of Contents
 
-- [Using as Submodule](#using-as-submodule)
-
+- [Overview](#-overview)
 - [Using as Submodule](#using-as-submodule)
 - [What This Is](#what-this-is)
 - [Workflow Flowchart](#workflow-flowchart)
 - [Directory Structure](#directory-structure)
 - [Quick Start](#quick-start)
+- [Role-Based Prompts](#role-based-prompts-for-testing)
+- [Multi-Role Testing](#-multi-role-testing-setup)
 - [Quick Navigation](#quick-navigation)
 - [Extending the System](#extending-the-system)
 - [File Purposes](#file-purposes)
