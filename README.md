@@ -2,6 +2,9 @@
 
 **A Role-Based Software Development Lifecycle Framework for GitHub**
 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/nsin08/github-copilot-sdlc/releases) [![Status](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://github.com/nsin08/github-copilot-sdlc) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) 
+• [Quick Start](#quick-start) • [Documentation](#directory-structure) • [Role Guides](#quick-navigation) • [Examples](#role-based-prompts-for-testing)
+
 ---
 
 ## Table of Contents
@@ -56,18 +59,6 @@ Enable **consistent, high-quality software delivery** by:
 ### Integration Method
 
 **Submodule-based distribution** - Add this workflow to any project as a Git submodule in the `.github` directory. GitHub automatically recognizes issue templates and workflows. Track specific branches (main, develop, release) or pin to exact versions for stability.
-
----
-
-<div align="center">
-
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/nsin08/github-copilot-sdlc/releases)
-[![Status](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://github.com/nsin08/github-copilot-sdlc)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-
-[Quick Start](#quick-start) • [Documentation](#directory-structure) • [Role Guides](#quick-navigation) • [Examples](#role-based-prompts-for-testing)
-
-</div>
 
 ---
 
