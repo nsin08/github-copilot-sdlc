@@ -3,10 +3,15 @@
 **Version:** 1.0  
 **Status:** ✅ Production Ready
 
+> **🎯 Designed for Submodule Use:** This repository contains a complete SDLC workflow template system that can be integrated into any GitHub project as a submodule. See [Quick Start](#quick-start) for integration instructions.
+
 ---
 
 ## Table of Contents
 
+- [Using as Submodule](#using-as-submodule)
+
+- [Using as Submodule](#using-as-submodule)
 - [What This Is](#what-this-is)
 - [Workflow Flowchart](#workflow-flowchart)
 - [Directory Structure](#directory-structure)
@@ -15,6 +20,50 @@
 - [Extending the System](#extending-the-system)
 - [File Purposes](#file-purposes)
 - [Naming Conventions](#naming-conventions)
+
+---
+
+## Using as Submodule
+
+**Add this workflow system to your project:**
+
+```bash
+# Navigate to your project root
+cd your-project/
+
+# Add as submodule in .github-templates directory
+git submodule add https://github.com/nsin08/github-copilot-sdlc.git .github-templates
+
+# Copy templates to your .github directory
+mkdir -p .github
+cp -r .github-templates/ISSUE_TEMPLATE .github/
+cp .github-templates/copilot-instructions.md .github/
+cp -r .github-templates/workflows .github/
+
+# Optional: Copy workflow-system docs for reference
+cp -r .github-templates/workflow-system .github/
+
+# Commit
+git add .github .github-templates .gitmodules
+git commit -m "Add SDLC workflow template system"
+git push
+```
+
+**Update submodule to latest version:**
+
+```bash
+cd your-project/
+git submodule update --remote .github-templates
+# Review changes, then commit
+git add .github-templates
+git commit -m "Update workflow template to latest version"
+```
+
+**Benefits of using as submodule:**
+- ✅ Stay up-to-date with workflow improvements
+- ✅ Consistent workflow across multiple projects
+- ✅ Easy to customize locally while tracking upstream changes
+- ✅ Revert to previous versions if needed
 
 ---
 
@@ -117,13 +166,23 @@ flowchart TD
 
 ### 1. Add to Your Project
 
+**Option A: Via Submodule (Recommended)**
+
+```bash
+# Add as submodule
+git submodule add https://github.com/nsin08/github-copilot-sdlc.git .github-templates
+
+# Copy to your .github directory
+cp -r .github-templates/ISSUE_TEMPLATE .github/
+cp .github-templates/copilot-instructions.md .github/
+cp -r .github-templates/workflows .github/
+```
+
+**Option B: Direct Copy**
+
 ```bash
 # Copy directory
-cp -r path/to/.github your-project/
-
-# Or as submodule
-git submodule add <repo-url> .github-templates
-cp -r .github-templates/.github .
+cp -r path/to/downloaded/.github your-project/
 ```
 
 ### 2. Customize
