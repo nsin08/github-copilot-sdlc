@@ -12,6 +12,7 @@ Rules are modular and extensible. Each file defines one rule category.
 | 04 | Artifact Linking | [04-artifact-linking.md](04-artifact-linking.md) | Traceability requirements |
 | 05 | PR Hygiene | [05-pr-hygiene.md](05-pr-hygiene.md) | Pull request standards |
 | 06 | Versioning | [06-versioning.md](06-versioning.md) | SemVer and release process |
+| 07 | Branching Strategy | [07-branching-strategy.md](07-branching-strategy.md) | Branch types, naming, and workflows |
 
 ## Adding New Rules
 
