@@ -53,9 +53,70 @@ git commit -m "Update SDLC workflow template system"
 git push
 ```
 
+**Track specific branch (e.g., develop, release, or feature):**
+
+```bash
+# Track develop branch for latest features
+git config -f .gitmodules submodule..github.branch develop
+git submodule update --remote --merge .github
+git add .gitmodules .github
+git commit -m "Track develop branch for workflow templates"
+
+# Track a release branch for stability
+git config -f .gitmodules submodule..github.branch release/v1.2.0
+git submodule update --remote --merge .github
+
+# Track a specific feature branch (temporary)
+git config -f .gitmodules submodule..github.branch feature/new-templates
+git submodule update --remote --merge .github
+
+# Switch back to main (default)
+git config -f .gitmodules submodule..github.branch main
+git submodule update --remote --merge .github
+```
+
+**Pin to specific version (commit hash):**
+
+```bash
+# Enter submodule and checkout specific commit
+cd .github
+git checkout abc1234  # specific commit hash
+cd ..
+
+# Commit the pinned version
+git add .github
+git commit -m "Pin workflow templates to version abc1234"
+git push
+
+# To update later, repeat with new commit hash
+```
+
+**Common submodule operations:**
+
+```bash
+# Check current submodule status
+git submodule status
+
+# Initialize after cloning project with submodules
+git submodule update --init --recursive
+
+# Pull latest from tracked branch
+git submodule update --remote --merge .github
+
+# Reset submodule to committed state
+git submodule update --force .github
+
+# Remove submodule
+git submodule deinit .github
+git rm .github
+rm -rf .git/modules/.github
+```
+
 **Benefits of using as submodule:**
 - ✅ Stay up-to-date with workflow improvements
 - ✅ Consistent workflow across multiple projects
+- ✅ Track specific branches (main, develop, release)
+- ✅ Pin to specific versions for stability
 - ✅ Easy to customize locally while tracking upstream changes
 - ✅ Revert to previous versions if needed
 
