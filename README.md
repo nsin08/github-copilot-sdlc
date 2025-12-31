@@ -203,7 +203,10 @@ gh pr create
 | State machine (workflow states) | [workflow-system/rules/01-state-machine.md](workflow-system/rules/01-state-machine.md) |
 | Definition of Ready | [workflow-system/rules/02-definition-of-ready.md](workflow-system/rules/02-definition-of-ready.md) |
 | Definition of Done | [workflow-system/rules/03-definition-of-done.md](workflow-system/rules/03-definition-of-done.md) |
+| Artifact linking | [workflow-system/rules/04-artifact-linking.md](workflow-system/rules/04-artifact-linking.md) |
 | PR hygiene | [workflow-system/rules/05-pr-hygiene.md](workflow-system/rules/05-pr-hygiene.md) |
+| Versioning | [workflow-system/rules/06-versioning.md](workflow-system/rules/06-versioning.md) |
+| Branching strategy | [workflow-system/rules/07-branching-strategy.md](workflow-system/rules/07-branching-strategy.md) |
 | **Roles** | |
 | All roles overview | [workflow-system/roles/00-index.md](workflow-system/roles/00-index.md) |
 | PO prompt | [workflow-system/roles/01-sponsor-po.md](workflow-system/roles/01-sponsor-po.md) |
