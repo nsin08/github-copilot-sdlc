@@ -1,16 +1,23 @@
 # GitHub Copilot SDLC Workflow System
 
-<div align="center">
-
 **A Role-Based Software Development Lifecycle Framework for GitHub**
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/nsin08/github-copilot-sdlc/releases)
-[![Status](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://github.com/nsin08/github-copilot-sdlc)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+---
 
-[Quick Start](#quick-start) • [Documentation](#directory-structure) • [Role Guides](#quick-navigation) • [Examples](#role-based-prompts-for-testing)
+## Table of Contents
 
-</div>
+- [Overview](#-overview)
+- [Using as Submodule](#using-as-submodule)
+- [What This Is](#what-this-is)
+- [Workflow Flowchart](#workflow-flowchart)
+- [Directory Structure](#directory-structure)
+- [Quick Start](#quick-start)
+- [Role-Based Prompts](#role-based-prompts-for-testing)
+- [Multi-Role Testing](#-multi-role-testing-setup)
+- [Quick Navigation](#quick-navigation)
+- [Extending the System](#extending-the-system)
+- [File Purposes](#file-purposes)
+- [Naming Conventions](#naming-conventions)
 
 ---
 
@@ -52,20 +59,15 @@ Enable **consistent, high-quality software delivery** by:
 
 ---
 
-## Table of Contents
+<div align="center">
 
-- [Overview](#-overview)
-- [Using as Submodule](#using-as-submodule)
-- [What This Is](#what-this-is)
-- [Workflow Flowchart](#workflow-flowchart)
-- [Directory Structure](#directory-structure)
-- [Quick Start](#quick-start)
-- [Role-Based Prompts](#role-based-prompts-for-testing)
-- [Multi-Role Testing](#-multi-role-testing-setup)
-- [Quick Navigation](#quick-navigation)
-- [Extending the System](#extending-the-system)
-- [File Purposes](#file-purposes)
-- [Naming Conventions](#naming-conventions)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/nsin08/github-copilot-sdlc/releases)
+[![Status](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://github.com/nsin08/github-copilot-sdlc)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+[Quick Start](#quick-start) • [Documentation](#directory-structure) • [Role Guides](#quick-navigation) • [Examples](#role-based-prompts-for-testing)
+
+</div>
 
 ---
 
