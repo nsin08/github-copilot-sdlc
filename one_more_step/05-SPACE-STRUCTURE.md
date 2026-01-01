@@ -1,20 +1,41 @@
 # Space Structure
-## GitHub-Native SDLC Governance Platform
+## SDLC Governance Control Plane — AI Context Architecture
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Author:** Architect  
 **Status:** Approved  
+**Classification:** Confidential — Competitive Strategy  
+
+---
+
+## Strategic Context
+
+> **No competitor has solved AI governance. This is our first-mover advantage.**
+
+The two-space architecture enables AI agents to operate within governed boundaries:
+
+| Competitive Challenge | Our Solution | Why It Wins |
+|-----------------------|--------------|-------------|
+| AI agents lack context | Role-specific spaces with workflow rules | Agents follow same rules as humans |
+| AI actions are uncontrolled | Permission boundaries in space docs | Agents can't merge, can't skip gates |
+| AI suggestions violate compliance | Embedded compliance rules in context | AI suggests compliant approaches |
+| Multiple projects, inconsistent governance | Shared framework space + project space | Governance scales across org |
+
+**The Two-Space Architecture is our AI governance differentiator:**
+- **space_framework** — Reusable governance (distributed to all projects)
+- **space_project** — Project-specific context (tech stack, architecture)
 
 ---
 
 ## 1. Two-Space Architecture
 
-### 1.1 Overview
+### 1.1 Overview — The AI Context Hub
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        TWO-SPACE ARCHITECTURE                               │
+│                    TWO-SPACE ARCHITECTURE                                   │
+│                    "AI Governance at Scale"                                 │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  ┌─────────────────────────────────┐  ┌─────────────────────────────────┐  │
@@ -22,67 +43,78 @@
 │  │   (Reusable Governance)         │  │   (Project-Specific)            │  │
 │  ├─────────────────────────────────┤  ├─────────────────────────────────┤  │
 │  │                                 │  │                                 │  │
-│  │  • Workflow rules               │  │  • Project architecture        │  │
+│  │  • Workflow rules (ENFORCED)    │  │  • Project architecture        │  │
 │  │  • Role definitions             │  │  • Tech stack guides           │  │
-│  │  • State machine                │  │  • Local runbooks              │  │
+│  │  • State machine (NO SKIP)      │  │  • Local runbooks              │  │
 │  │  • DoR/DoD templates            │  │  • Domain patterns             │  │
 │  │  • Issue/PR templates           │  │  • External references         │  │
 │  │  • Quick start guides           │  │  • Team-specific context       │  │
 │  │  • Compliance standards         │  │  • Service documentation       │  │
 │  │                                 │  │                                 │  │
 │  │  Distribution: Submodule        │  │  Distribution: Per-project     │  │
-│  │  Updates: Framework team        │  │  Updates: Project team         │  │
-│  │  Audience: All agents           │  │  Audience: Project agents      │  │
+│  │  Updates: Governance team       │  │  Updates: Project team         │  │
+│  │  Audience: ALL agents           │  │  Audience: Project agents      │  │
+│  │                                 │  │                                 │  │
+│  │  🔒 AUTHORITATIVE               │  │  📚 CONTEXTUAL                 │  │
+│  │  Rules cannot be overridden     │  │  Extends, never overrides      │  │
 │  │                                 │  │                                 │  │
 │  └─────────────────────────────────┘  └─────────────────────────────────┘  │
 │                                                                             │
-│  Agent loads: space_framework (governance) → space_project (context)       │
+│  Agent Load Order: space_framework → space_project                          │
+│  If conflict: space_framework wins (governance is authoritative)            │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 1.2 Design Principles
+### 1.2 Design Principles — Built for Market Leadership
 
-| Principle | Description |
-|-----------|-------------|
-| **Separation of Concerns** | Governance rules in framework; project specifics in project space |
-| **Single Source of Truth** | Framework rules are authoritative; project extends, not overrides |
-| **Role-Based Navigation** | Entry points by role; agents load relevant context |
-| **Minimal Duplication** | Space summarizes and links; full docs in git source |
-| **Scalability** | Structure supports 100+ files without overwhelming agents |
+| Principle | Description | Competitive Edge |
+|-----------|-------------|------------------|
+| **Separation of Concerns** | Governance in framework; project specifics in project space | Clean scaling |
+| **Single Source of Truth** | Framework rules are authoritative; project extends, never overrides | No governance drift |
+| **Role-Based Navigation** | Entry points by role; agents load relevant context | Least privilege for AI |
+| **Minimal Duplication** | Space summarizes and links; full docs in git source | Maintainable at scale |
+| **Scalability** | Structure supports 100+ files without overwhelming agents | Enterprise-ready |
+| **Compliance-First** | Embedded regulatory mappings (HIPAA, SOX, CMMC) | Auditors love it |
 
 ---
 
 ## 2. space_framework Structure
 
-### 2.1 Directory Layout
+### 2.1 Directory Layout — The Governance Library
 
 ```
 spaces/space_framework/
-├── README.md                          (Master entry point)
-├── Quick_Start/
-│   ├── README.md                      (Role picker)
-│   ├── Im_a_Client.md                 (Client guide)
-│   ├── Im_a_PO.md                     (Product Owner guide)
-│   ├── Im_a_PM.md                     (Project Manager guide)
-│   ├── Im_an_Architect.md             (Architect guide)
-│   ├── Im_an_Implementer.md           (IC Implementer guide)
-│   ├── Im_a_Reviewer.md               (IC Reviewer guide)
-│   ├── Im_DevOps.md                   (DevOps guide)
-│   ├── Im_a_PenTester.md              (Security guide)
-│   ├── Im_a_CODEOWNER.md              (CODEOWNER guide)
-│   └── Im_Stuck.md                    (Troubleshooting)
-├── Rules/
-│   ├── README.md                      (Rules index)
+├── README.md                          (Master entry point — START HERE)
+├── VISION.md                          (Market leadership context)
+│
+├── Quick_Start/                       (Role-based entry points)
+│   ├── README.md                      (Role picker — "I am a...")
+│   ├── Im_a_Client.md                 (Client: Submit ideas, approve work)
+│   ├── Im_a_PO.md                     (PO: Define requirements, prioritize)
+│   ├── Im_a_PM.md                     (PM: Coordinate, assign, track)
+│   ├── Im_an_Architect.md             (Architect: Design, validate, guide)
+│   ├── Im_an_Implementer.md           (IC: Build, test, PR)
+│   ├── Im_a_Reviewer.md               (IC: Review, approve, block)
+│   ├── Im_DevOps.md                   (DevOps: Deploy, release, monitor)
+│   ├── Im_a_PenTester.md              (Security: Scan, approve, document)
+│   ├── Im_a_CODEOWNER.md              (CODEOWNER: THE merge authority)
+│   └── Im_Stuck.md                    (Troubleshooting — common blockers)
+│
+├── Rules/                             (ENFORCED governance rules)
+│   ├── README.md                      (Rules index — all rules linked)
 │   ├── State_Machine.md               (Workflow states & transitions)
-│   ├── Definition_of_Ready.md         (DoR checklist)
-│   ├── Definition_of_Done.md          (DoD checklist)
-│   ├── Artifact_Linking.md            (Traceability rules)
-│   ├── Approval_Gates.md              (Who approves what)
-│   └── Branch_Naming.md               (Git conventions)
-├── Roles/
+│   ├── Definition_of_Ready.md         (DoR checklist — enforced)
+│   ├── Definition_of_Done.md          (DoD checklist — enforced)
+│   ├── Artifact_Linking.md            (Traceability rules — enforced)
+│   ├── Approval_Gates.md              (Who approves what — enforced)
+│   ├── Branch_Naming.md               (Git conventions — enforced)
+│   ├── CODEOWNER_Merge_Only.md        (THE critical rule)
+│   └── AI_Agent_Boundaries.md         (What AI can/cannot do)
+│
+├── Roles/                             (Detailed role definitions)
 │   ├── README.md                      (Role matrix)
-│   ├── Client.md                      (Role definition)
+│   ├── Client.md                      
 │   ├── Product_Owner.md
 │   ├── Project_Manager.md
 │   ├── Architect.md
@@ -91,13 +123,33 @@ spaces/space_framework/
 │   ├── DevOps.md
 │   ├── PenTester.md
 │   └── CODEOWNER.md
-├── Templates/
+│
+├── Templates/                         (Issue/PR templates)
 │   ├── README.md                      (Template index)
-│   ├── Idea_Template.md               (Links to ISSUE_TEMPLATE)
+│   ├── Idea_Template.md               
 │   ├── Epic_Template.md
 │   ├── Story_Template.md
 │   ├── PR_Template.md
 │   └── Review_Checklist.md
+│
+├── Compliance/                        (Regulatory mappings)
+│   ├── README.md                      (Compliance index)
+│   ├── HIPAA_Mapping.md               (Healthcare)
+│   ├── FDA_Part11_Mapping.md          (Medical devices)
+│   ├── SOX_Mapping.md                 (Financial)
+│   ├── PCI_DSS_Mapping.md             (Payments)
+│   ├── NIST_800_171_Mapping.md        (Defense CUI)
+│   ├── CMMC_Mapping.md                (Defense contractors)
+│   └── FedRAMP_Mapping.md             (Government cloud)
+│
+└── Runbooks/                          (Standard operating procedures)
+    ├── README.md                      (Runbook index)
+    ├── Handle_Blocked_State.md
+    ├── Emergency_Hotfix.md
+    ├── Rollback_Procedure.md
+    ├── Compliance_Audit_Prep.md
+    └── Onboard_New_Project.md
+```
 ├── Compliance/
 │   ├── README.md                      (Compliance overview)
 │   ├── Audit_Trail.md                 (Audit requirements)

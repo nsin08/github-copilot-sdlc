@@ -1,60 +1,96 @@
 # System Architecture
-## GitHub-Native SDLC Governance Platform
+## SDLC Governance Control Plane — Technical Blueprint for Market Dominance
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Author:** Architect  
 **Status:** Approved  
+**Classification:** Confidential — Competitive Strategy  
+
+---
+
+## Strategic Architecture Principles
+
+> **This architecture is designed to create insurmountable competitive advantages.**
+
+| Principle | Strategic Rationale |
+|-----------|---------------------|
+| **GitHub-Native Only** | Zero new tools = zero adoption friction = faster sales cycles |
+| **Enforcement at Every Layer** | Competitors advise; we block. This is the moat. |
+| **Cryptographic Audit Trail** | Immutable logs with HMAC = competitor-proof compliance |
+| **AI-First Governance** | First-mover in governed AI-assisted development |
+| **Modular Compliance** | Plug-and-play frameworks (HIPAA, SOX, CMMC) = faster expansion |
 
 ---
 
 ## 1. Architecture Overview
 
-### 1.1 High-Level Architecture
+### 1.1 High-Level Architecture — The Control Plane Stack
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                        GITHUB-NATIVE SDLC PLATFORM                          │
+│                    SDLC GOVERNANCE CONTROL PLANE                            │
+│                    "The Platform That Makes Competitors Irrelevant"         │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
 │  │                      PRESENTATION LAYER                              │  │
-│  ├─────────────────────────────────────────────────────────────────────┤  │
-│  │  GitHub Issues    GitHub PRs    GitHub Projects    GitHub Releases  │  │
-│  │  (Work Items)     (Changes)     (Boards/Views)     (Deployments)    │  │
+│  │  ┌─────────────────────────────────────────────────────────────┐    │  │
+│  │  │ GitHub Issues │ GitHub PRs │ GitHub Projects │ GitHub Releases│    │  │
+│  │  │ (Work Items)  │ (Changes)  │ (Dashboards)    │ (Deployments)  │    │  │
+│  │  └─────────────────────────────────────────────────────────────┘    │  │
+│  │  WHY: Developers stay in GitHub. No new UI to learn. No friction.   │  │
 │  └─────────────────────────────────────────────────────────────────────┘  │
 │                                    ↕                                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
-│  │                      GOVERNANCE LAYER                                │  │
-│  ├─────────────────────────────────────────────────────────────────────┤  │
-│  │  State Machine    Approval Gates    RBAC    Audit Trail    Metrics  │  │
-│  │  (Workflows)      (Actions)         (CODEOWNERS)  (Logs)   (Data)   │  │
+│  │                      ENFORCEMENT LAYER (THE MOAT)                    │  │
+│  │  ┌─────────────────────────────────────────────────────────────┐    │  │
+│  │  │ State Machine │ Approval Gates │ Merge Controls │ Security   │    │  │
+│  │  │ (Blocks skip) │ (Role-based)   │ (CODEOWNER)   │ (PenTest)   │    │  │
+│  │  └─────────────────────────────────────────────────────────────┘    │  │
+│  │  WHY: Competitors report violations. We prevent them.               │  │
+│  └─────────────────────────────────────────────────────────────────────┘  │
+│                                    ↕                                       │
+│  ┌─────────────────────────────────────────────────────────────────────┐  │
+│  │                      AUDIT LAYER (COMPLIANCE MOAT)                   │  │
+│  │  ┌─────────────────────────────────────────────────────────────┐    │  │
+│  │  │ Immutable Logs │ HMAC Signing │ Hash Chain │ Evidence Gen    │    │  │
+│  │  │ (Append-only)  │ (Tamper-proof)│ (Integrity)│ (One-click)    │    │  │
+│  │  └─────────────────────────────────────────────────────────────┘    │  │
+│  │  WHY: Auditors trust cryptographic proof. Databases can be edited.  │  │
+│  └─────────────────────────────────────────────────────────────────────┘  │
+│                                    ↕                                       │
+│  ┌─────────────────────────────────────────────────────────────────────┐  │
+│  │                      AI GOVERNANCE LAYER (FIRST MOVER)               │  │
+│  │  ┌─────────────────────────────────────────────────────────────┐    │  │
+│  │  │ Role Context │ Permission Bounds │ Agentic Workflows │ Spaces│    │  │
+│  │  │ (Scoped AI)  │ (No merge auth)   │ (Same rules)     │(Docs)  │    │  │
+│  │  └─────────────────────────────────────────────────────────────┘    │  │
+│  │  WHY: No competitor has solved AI + compliance. We have.            │  │
 │  └─────────────────────────────────────────────────────────────────────┘  │
 │                                    ↕                                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
 │  │                      AUTOMATION LAYER                                │  │
-│  ├─────────────────────────────────────────────────────────────────────┤  │
 │  │  GitHub Actions (Enforcement, Validation, Metrics, Deployment)       │  │
-│  │  ├── enforce-workflow.yml     (State transitions)                   │  │
-│  │  ├── enforce-linking.yml      (Artifact traceability)               │  │
-│  │  ├── enforce-approval.yml     (Role-based gates)                    │  │
-│  │  ├── audit-logger.yml         (Immutable audit trail)               │  │
-│  │  ├── metrics-collector.yml    (Performance metrics)                 │  │
-│  │  └── security-gate.yml        (PenTest + scans)                     │  │
+│  │  ├── enforce-state-machine.yml   (Block invalid transitions)        │  │
+│  │  ├── enforce-artifact-linking.yml (Block orphan PRs)                │  │
+│  │  ├── enforce-approval-gates.yml   (Role-based authorization)        │  │
+│  │  ├── audit-logger.yml             (HMAC-signed immutable logs)      │  │
+│  │  ├── metrics-collector.yml        (Lead time, cycle time, velocity) │  │
+│  │  ├── security-gate.yml            (PenTest + scans)                 │  │
+│  │  └── compliance-reporter.yml      (One-click audit evidence)        │  │
 │  └─────────────────────────────────────────────────────────────────────┘  │
 │                                    ↕                                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
-│  │                      CONTEXT LAYER                                   │  │
-│  ├─────────────────────────────────────────────────────────────────────┤  │
-│  │  Copilot Spaces (Agent Context)                                      │  │
-│  │  ├── space_framework (Governance, Rules, Role Guides)               │  │
-│  │  └── space_project   (Architecture, Tech Stack, Runbooks)           │  │
+│  │                      CONTEXT LAYER (AI CONTEXT HUB)                  │  │
+│  │  Copilot Spaces                                                      │  │
+│  │  ├── space_framework (Governance — distributed to all projects)     │  │
+│  │  └── space_project   (Project-specific — architecture, runbooks)    │  │
 │  └─────────────────────────────────────────────────────────────────────┘  │
 │                                    ↕                                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
-│  │                      STORAGE LAYER                                   │  │
-│  ├─────────────────────────────────────────────────────────────────────┤  │
-│  │  Git Repository (Code, Docs, Config, Audit Logs, Spaces)            │  │
+│  │                      PLATFORM LAYER (GITHUB)                         │  │
+│  │  Git Repository │ Branch Protection │ CODEOWNERS │ Signed Commits   │  │
 │  └─────────────────────────────────────────────────────────────────────┘  │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘

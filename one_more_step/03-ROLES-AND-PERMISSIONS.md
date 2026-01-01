@@ -1,32 +1,48 @@
 # Roles and Permissions
-## GitHub-Native SDLC Governance Platform
+## SDLC Governance Control Plane — The Human Firewall
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Authors:** Project Manager + Architect  
 **Status:** Approved  
+**Classification:** Confidential — Competitive Strategy  
+
+---
+
+## Strategic Context
+
+> **Every role is a checkpoint. Every permission is a gate. Together, they form an unbreakable chain of custody.**
+
+Competitors have roles. We have **enforced segregation of duties** that auditors love:
+
+| What Auditors Ask | Our Answer | Competitor Answer |
+|-------------------|------------|-------------------|
+| "Who can merge to production?" | Only CODEOWNER. Enforced by GitHub. | "Anyone with write access, usually." |
+| "Can developers approve their own code?" | No. System prevents it. | "Policy says no. We hope they follow it." |
+| "How do you prove authorization?" | Immutable audit log with role verification. | "We can query the database." |
+| "What about AI assistants?" | Same rules. Logged. No merge authority. | "Uh... we're working on that." |
 
 ---
 
 ## 1. Role Definitions
 
-### 1.1 Role Summary
+### 1.1 Role Summary — The Approval Chain
 
-| Role | Primary Responsibility | Reports To | GitHub Team |
-|------|----------------------|------------|-------------|
-| **Client** | Define business needs, approve ideas | External | @org/clients |
-| **Product Owner (PO)** | Define requirements, prioritize backlog | Client | @org/product |
-| **Project Manager (PM)** | Coordinate delivery, manage resources | PO | @org/project |
-| **Architect** | Design systems, validate feasibility | PM | @org/architecture |
-| **IC (Implementer)** | Build & test features | Architect | @org/engineering |
-| **IC (Reviewer)** | Review code, ensure quality | Architect | @org/engineering |
-| **DevOps** | Manage deployments, infrastructure | PM | @org/devops |
-| **PenTester** | Security review, vulnerability assessment | Architect | @org/security |
-| **CODEOWNER** | Final merge authority, governance | Architect | @org/codeowners |
+| Role | Primary Responsibility | Key Power | GitHub Team | Critical Gates Owned |
+|------|----------------------|-----------|-------------|---------------------|
+| **Client** | Define business needs | Approve/Reject Ideas | @org/clients | Idea → Approved |
+| **Product Owner (PO)** | Define requirements | Prioritize backlog | @org/product | Epic/Story approval |
+| **Project Manager (PM)** | Coordinate delivery | Assign resources | @org/project | Ready → In Progress |
+| **Architect** | Design systems | Validate feasibility | @org/architecture | Approved → Ready |
+| **IC (Implementer)** | Build & test features | Create PRs | @org/engineering | In Progress → In Review |
+| **IC (Reviewer)** | Review code | Approve PRs | @org/engineering | Code quality gate |
+| **DevOps** | Manage deployments | Deploy releases | @org/devops | Done → Released |
+| **PenTester** | Security review | Security sign-off | @org/security | Security gate |
+| **CODEOWNER** | Final merge authority | Merge PRs | @org/codeowners | **ONLY** merge authority |
 
 ### 1.2 Detailed Role Descriptions
 
-#### 1.2.1 Client
+#### 1.2.1 Client — The Business Voice
 
 **Purpose:** External stakeholder who defines business needs and approves work.
 
@@ -35,12 +51,13 @@
 | **Primary Focus** | Business outcomes, ROI, user value |
 | **Key Activities** | Submit ideas, approve/reject ideas, validate delivered value |
 | **Workflow States Owned** | Idea → Approved, Idea → Rejected |
-| **Approvals Given** | Idea approval |
+| **Approvals Given** | Idea approval — **THE ONLY ROLE THAT CAN START WORK** |
 | **Approvals Needed From** | None (initiator) |
 | **GitHub Permissions** | Triage (can create/label issues) |
 | **Space Context** | space_framework/Quick_Start/Im_a_Client.md |
+| **Competitive Edge** | Customer voice enforced in workflow |
 
-#### 1.2.2 Product Owner (PO)
+#### 1.2.2 Product Owner (PO) — The Requirements Guardian
 
 **Purpose:** Translate business needs into technical requirements and manage backlog.
 
@@ -53,8 +70,9 @@
 | **Approvals Needed From** | Client (for idea approval) |
 | **GitHub Permissions** | Write (can create/edit issues, PRs) |
 | **Space Context** | space_framework/Quick_Start/Im_a_PO.md |
+| **Competitive Edge** | Acceptance criteria enforced before merge |
 
-#### 1.2.3 Project Manager (PM)
+#### 1.2.3 Project Manager (PM) — The Traffic Controller
 
 **Purpose:** Coordinate delivery, allocate resources, track progress.
 
@@ -67,8 +85,9 @@
 | **Approvals Needed From** | PO (priority), Architect (feasibility) |
 | **GitHub Permissions** | Write (can manage projects, assign issues) |
 | **Space Context** | space_framework/Quick_Start/Im_a_PM.md |
+| **Competitive Edge** | No work starts without resource allocation |
 
-#### 1.2.4 Architect
+#### 1.2.4 Architect — The Technical Guardian
 
 **Purpose:** Design systems, validate technical feasibility, ensure quality.
 
@@ -81,8 +100,9 @@
 | **Approvals Needed From** | PO (requirements clarity) |
 | **GitHub Permissions** | Write + CODEOWNER for architecture files |
 | **Space Context** | space_framework/Quick_Start/Im_an_Architect.md |
+| **Competitive Edge** | No work proceeds without technical validation |
 
-#### 1.2.5 IC - Implementer
+#### 1.2.5 IC - Implementer — The Builder
 
 **Purpose:** Build features according to specifications, write tests.
 
@@ -91,12 +111,13 @@
 | **Primary Focus** | Code quality, test coverage, security, standards compliance |
 | **Key Activities** | Implement stories, write tests, open PRs, address review feedback |
 | **Workflow States Owned** | In Progress → In Review (PR opened) |
-| **Approvals Given** | None (implementer cannot self-approve) |
+| **Approvals Given** | None (**implementer CANNOT self-approve**) |
 | **Approvals Needed From** | IC (Reviewer), PenTester (security), CODEOWNER (merge) |
 | **GitHub Permissions** | Write (can create branches, PRs) |
 | **Space Context** | space_framework/Quick_Start/Im_an_Implementer.md + space_project/Tech_Stack/ |
+| **Competitive Edge** | Enforced segregation — builders ≠ approvers |
 
-#### 1.2.6 IC - Reviewer
+#### 1.2.6 IC - Reviewer — The Quality Gate
 
 **Purpose:** Review code, ensure quality and standards compliance.
 

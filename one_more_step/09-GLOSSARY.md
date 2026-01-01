@@ -1,103 +1,181 @@
 # Glossary
-## GitHub-Native SDLC Governance Platform
+## SDLC Governance Control Plane — Terminology Reference
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Author:** Technical Writer  
 **Status:** Approved  
+**Classification:** Confidential — Competitive Strategy  
+
+---
+
+## Strategic Context
+
+> **Common language is the foundation of market leadership.**
+
+This glossary defines terms as we use them — often with specific meanings that differentiate us from competitors:
+
+| Term | Industry Usage | Our Usage | Why It Matters |
+|------|----------------|-----------|----------------|
+| Workflow | "Suggested process" | "Enforced state machine" | We block, not advise |
+| Audit trail | "Log files" | "Cryptographically signed, immutable evidence" | Tamper-proof |
+| Governance | "Policies and guidelines" | "System-enforced controls" | No human judgment needed |
+| AI Governance | "Emerging concept" | "Role-scoped agents with logged actions" | First-mover advantage |
 
 ---
 
 ## A
 
 ### Acceptance Criteria
-Specific, testable conditions that must be met for a Story to be considered complete. Written in Given/When/Then format or as a checklist of verifiable outcomes.
+Specific, testable conditions that must be met for a Story to be considered complete. Written in Given/When/Then format or as a checklist of verifiable outcomes. **In our platform, these are enforced — PRs cannot merge without mapped evidence.**
 
 ### Actor
-The GitHub user or automation that performs an action. Recorded in audit logs for traceability.
+The GitHub user or automation that performs an action. Recorded in audit logs for traceability. **Every actor is verified against role membership before action is permitted.**
 
 ### Agent
-An AI assistant (e.g., GitHub Copilot) that performs tasks within the workflow. Operates under the permissions of the user who invokes it.
+An AI assistant (e.g., GitHub Copilot) that performs tasks within the workflow. **Critical differentiator: Our agents operate under the same governance rules as humans — logged, role-scoped, no merge authority.**
 
 ### Approval Gate
-A checkpoint in the workflow where a specific role must approve before work can proceed. Enforced via GitHub branch protection and Actions.
+A checkpoint in the workflow where a specific role must approve before work can proceed. **Key distinction: Our gates are enforced by automation, not policy. Violations are blocked, not reported.**
 
 ### Architect
-Role responsible for system design, technical standards, and feasibility validation. Approves transition from Approved → Ready.
+Role responsible for system design, technical standards, and feasibility validation. Approves transition from Approved → Ready. **Authoritative on technical decisions; owns architecture file CODEOWNER entries.**
 
 ### Artifact
-Any work product created in the SDLC: Issues (Ideas, Epics, Stories), Pull Requests, Commits, Releases.
+Any work product created in the SDLC: Issues (Ideas, Epics, Stories), Pull Requests, Commits, Releases. **All artifacts are linked in an unbreakable chain — this is our traceability moat.**
 
 ### Artifact Linking
-The requirement that all artifacts reference their parent in the hierarchy. Enforced via automation (Closes #N syntax).
+The requirement that all artifacts reference their parent in the hierarchy. **Enforced via automation (Closes #N syntax). Orphan PRs are blocked from merge.**
 
 ### Audit Trail
-Immutable, timestamped record of all state transitions, approvals, and actions. Stored in JSONL format with HMAC signatures.
+Immutable, timestamped record of all state transitions, approvals, and actions. Stored in JSONL format with HMAC signatures. **Competitor distinction: Our logs are cryptographically signed and tamper-evident. Database logs can be edited.**
 
 ---
 
 ## B
 
 ### Backlog
-The complete list of work items (Epics, Stories, Tasks) not yet started or in progress. Managed via GitHub Projects.
+The complete list of work items (Epics, Stories, Tasks) not yet started or in progress. Managed via GitHub Projects. **Single source of truth — no Jira, no spreadsheets.**
 
 ### Blocked State
-An exception state indicating work cannot proceed due to external dependency or impediment. Requires explicit unblocking action.
+An exception state indicating work cannot proceed due to external dependency or impediment. **Requires explicit unblocking action with documented resolution. Highly visible in Kanban view.**
 
 ### Branch Protection
-GitHub feature that enforces rules on branches: required reviews, status checks, restrictions on who can push/merge.
+GitHub feature that enforces rules on branches: required reviews, status checks, restrictions on who can push/merge. **Foundation of our CODEOWNER-only merge enforcement.**
 
 ### Branching Strategy
-The defined patterns for creating and managing Git branches. This platform uses: `feature/<issue-id>-slug`, `fix/<issue-id>-slug`, `release/*`, `hotfix/*`.
+The defined patterns for creating and managing Git branches. This platform uses: `feature/<issue-id>-slug`, `fix/<issue-id>-slug`, `release/*`, `hotfix/*`. **Enforced by pre-commit hooks and CI validation.**
 
 ---
 
 ## C
 
 ### CI/CD
-Continuous Integration / Continuous Deployment. Automated building, testing, and deployment of code changes.
+Continuous Integration / Continuous Deployment. Automated building, testing, and deployment of code changes. **Our enforcement layer runs in CI — violations blocked at automation level.**
 
 ### Client
-Role representing the external or internal customer who provides business requirements. Initiates Ideas.
+Role representing the external or internal customer who provides business requirements. **The only role that can approve Ideas — business value gating enforced from start.**
 
 ### CMMC
-Cybersecurity Maturity Model Certification. DoD framework for assessing contractor cybersecurity practices. See [08-COMPLIANCE-MAPPING.md](08-COMPLIANCE-MAPPING.md).
+Cybersecurity Maturity Model Certification. DoD framework for assessing contractor cybersecurity practices. **We provide pre-built CMMC control mapping — see [08-COMPLIANCE-MAPPING.md](08-COMPLIANCE-MAPPING.md).**
 
 ### CODEOWNER
-Role with exclusive authority to merge Pull Requests to protected branches. Defined in CODEOWNERS file.
+**THE critical role.** Exclusive authority to merge Pull Requests to protected branches. Defined in CODEOWNERS file. **No exceptions. No workarounds. This is the segregation of duties auditors demand.**
 
 ### CODEOWNERS File
-GitHub file (`.github/CODEOWNERS`) that specifies individuals or teams responsible for code in specific paths. Used for automatic review requests.
+GitHub file (`.github/CODEOWNERS`) that specifies individuals or teams responsible for code in specific paths. **Our enforcement layer — merge authority is defined here, not in user permissions.**
 
 ### Compliance
-Adherence to regulatory, legal, or organizational requirements. This platform targets HIPAA, SOX, PCI-DSS, NIST 800-171, CMMC, FedRAMP.
+Adherence to regulatory, legal, or organizational requirements. **We target: HIPAA, SOX, PCI-DSS, NIST 800-171, CMMC, FedRAMP — $47B+ TAM.**
+
+### Competitive Moat
+Defensible advantage that competitors cannot easily replicate. **Our moats: Enforced state machine, HMAC audit trail, AI governance, GitHub-native simplicity.**
 
 ### Copilot Space
-A GitHub Copilot feature for storing context documents that agents can reference. This platform uses two spaces: `space_framework` (governance) and `space_project` (project-specific).
+A GitHub Copilot feature for storing context documents that agents can reference. **Our two-space architecture (space_framework + space_project) is our AI governance differentiator.**
 
 ### CUI
-Controlled Unclassified Information. Government information requiring safeguarding (NIST 800-171).
+Controlled Unclassified Information. Government information requiring safeguarding (NIST 800-171). **Handled with dedicated labels and restricted repository access.**
 
 ### Cycle Time
-Metric: Time from issue creation to release. Measures end-to-end delivery speed.
+Metric: Time from issue creation to release. Measures end-to-end delivery speed. **Automatically calculated and tracked — key performance indicator.**
 
 ---
 
 ## D
 
 ### Definition of Done (DoD)
-Checklist of criteria that must be satisfied before work can be marked complete and merged. Enforced via PR template and Actions.
+Checklist of criteria that must be satisfied before work can be marked complete and merged. **Enforced via PR template and GitHub Actions — not optional, not advisory.**
 
 ### Definition of Ready (DoR)
-Checklist of criteria that must be satisfied before work can begin (transition to In Progress). Enforced via issue template and Actions.
+Checklist of criteria that must be satisfied before work can begin (transition to In Progress). **Enforced via issue template and automation — prevents starting unclear work.**
 
 ### DevOps
-Role responsible for deployment, infrastructure, and release management. Approves transition from Done → Released.
+Role responsible for deployment, infrastructure, and release management. Approves transition from Done → Released. **Controls production access and release authorization.**
 
 ### DPIA
-Data Protection Impact Assessment. GDPR requirement for assessing privacy risks.
+Data Protection Impact Assessment. GDPR requirement for assessing privacy risks. **Integrated into workflow for security-tagged issues.**
 
 ### Draft PR
+A Pull Request marked as not ready for review. Used for early feedback before formal review. **Does not trigger state transition to In Review until marked ready.**
+
+---
+
+## E
+
+### Enforcement
+**Core differentiator.** System-level blocking of actions that violate workflow rules. **Not advisory — violations are prevented by automation. Competitors report; we block.**
+
+### Epic
+A large work item representing a feature or initiative. Contains multiple Stories. Created by Tech Lead from Idea. **Anchor point for traceability chain — all Stories must link back.**
+
+### Evidence
+Concrete proof that acceptance criteria are met: test names, file paths, screenshots, logs. **Required in PR description. Mapped to acceptance criteria. Auditors love it.**
+
+---
+
+## F
+
+### FDA 21 CFR Part 11
+FDA regulation for electronic records and signatures. Requires validated systems, audit trails, and electronic signatures. **We provide automatic Part 11 evidence generation — see [08-COMPLIANCE-MAPPING.md](08-COMPLIANCE-MAPPING.md).**
+
+### FedRAMP
+Federal Risk and Authorization Management Program. Security framework for cloud services used by federal agencies. **Authorization-ready posture from Day 1.**
+
+### First-Pass Rate
+Metric: Percentage of PRs approved on first review without changes. **Measures quality of submissions. Target: > 80% Year 1, > 90% Year 3.**
+
+---
+
+## G
+
+### Gate
+See Approval Gate. **Every gate is a competitive differentiator — we enforce what competitors suggest.**
+
+### GDPR
+General Data Protection Regulation. EU regulation for data privacy and protection. **Privacy by design built into workflow.**
+
+### Governance
+**Redefined.** Not "policies and guidelines" but "system-enforced controls." **The framework of rules, practices, and automations that control how software is developed and delivered.**
+
+### Guard Rails
+Automated constraints that prevent incorrect or risky actions. **Examples: blocking merge without approval, requiring linked issues, mandatory security scans.**
+
+---
+
+## H
+
+### Happy Path
+The standard workflow when all conditions are met and no exceptions occur. **Designed to be "touchless" — once prerequisites are met, work flows without manual intervention.**
+
+### HIPAA
+Health Insurance Portability and Accountability Act. US regulation for protecting health information (PHI). **We provide automatic HIPAA audit evidence — see [08-COMPLIANCE-MAPPING.md](08-COMPLIANCE-MAPPING.md).**
+
+### HMAC
+Hash-based Message Authentication Code. Cryptographic signature used to verify audit log integrity. **Our immutable audit trail is HMAC-signed — tamper-evident, court-defensible.**
+
+### Hotfix
+Urgent fix applied directly to production branch. Follows abbreviated workflow with post-hoc documentation. **Still requires CODEOWNER approval — no exceptions.**
 A Pull Request marked as not ready for review. Used for early feedback before formal review.
 
 ---

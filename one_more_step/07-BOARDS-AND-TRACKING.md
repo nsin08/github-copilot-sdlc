@@ -1,24 +1,47 @@
 # Boards and Tracking
-## GitHub-Native SDLC Governance Platform
+## SDLC Governance Control Plane — Operational Command Center
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Author:** Project Manager  
 **Status:** Approved  
+**Classification:** Confidential — Competitive Strategy  
+
+---
+
+## Strategic Context
+
+> **Visibility is control. Control is compliance. Compliance is revenue.**
+
+GitHub Projects becomes the single source of truth for work status, metrics, and reporting:
+
+| Competitor Approach | Our Approach | Business Impact |
+|---------------------|--------------|-----------------|
+| Multiple dashboards across tools | Single GitHub Projects view | Zero context switching |
+| Manual status updates | Automated from workflow state | Always accurate |
+| Custom reporting builds | Built-in views + export | Instant audit response |
+| Disconnected from code | Same platform as development | True traceability |
+
+**The Boards Architecture enables:**
+- Real-time workflow visibility
+- Automated metrics collection
+- One-click compliance reporting
+- Executive dashboards without BI tools
 
 ---
 
 ## 1. GitHub Projects Overview
 
-### 1.1 Project Structure
+### 1.1 Project Structure — The Command Center
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         GITHUB PROJECTS SETUP                               │
+│                    GITHUB PROJECTS — COMMAND CENTER                         │
+│                    "Single Source of Truth"                                 │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  Project: "SDLC Governance Platform"                                        │
-│  ════════════════════════════════════                                       │
+│  Project: "SDLC Governance Control Plane"                                   │
+│  ════════════════════════════════════════                                   │
 │                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
 │  │                           VIEWS                                      │  │
@@ -34,61 +57,67 @@
 │  │ • In Review      │ • Week/Month     │ • Priority       │ • Burndown │  │
 │  │ • Done           │                  │ • Due Date       │            │  │
 │  │ • Released       │                  │                  │            │  │
+│  │ • BLOCKED ⚠️     │                  │                  │            │  │
 │  └──────────────────┴──────────────────┴──────────────────┴────────────┘  │
 │                                                                             │
-│  Custom Fields:                                                             │
-│  ├── State (single select): Idea, Approved, Ready, In Progress, etc.      │
+│  Custom Fields (Synced with Labels):                                        │
+│  ├── State (single select): Enforced workflow states                       │
 │  ├── Type (single select): Idea, Epic, Story, Task                         │
-│  ├── Priority (single select): P0, P1, P2, P3                             │
-│  ├── Points (number): Story points                                         │
+│  ├── Priority (single select): P0 Critical, P1 High, P2 Medium, P3 Low    │
+│  ├── Points (number): Story points for velocity                            │
 │  ├── Phase (single select): Phase 1, Phase 2, Phase 3                     │
 │  ├── Sprint (iteration): 2-week sprints                                    │
-│  └── Due Date (date): Target completion                                    │
+│  ├── Lead Time (calculated): PR open → merge (hours)                      │
+│  └── Cycle Time (calculated): Issue open → release (days)                 │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 1.2 Views Configuration
+### 1.2 Views Configuration — Purpose-Built for Each Audience
 
-#### Kanban View
+#### Kanban View — Engineering Daily Operations
 
-**Purpose:** Track current work by workflow state
+**Purpose:** Track current work by workflow state — the primary engineering view
 
-**Columns:**
-| Column | Filter | WIP Limit | Color |
-|--------|--------|-----------|-------|
-| Idea | `state:idea` | 10 | Gray |
-| Approved | `state:approved` | 5 | Blue |
-| Ready | `state:ready` | 10 | Green |
-| In Progress | `state:in-progress` | 5 | Yellow |
-| In Review | `state:in-review` | 5 | Orange |
-| Done | `state:done` | ∞ | Purple |
-| Released | `state:released` | ∞ | Teal |
-| Blocked | `state:blocked` | ∞ | Red |
+**Columns (Enforced State Machine):**
+| Column | Filter | WIP Limit | Color | Alert |
+|--------|--------|-----------|-------|-------|
+| Idea | `state:idea` | 10 | Gray | — |
+| Approved | `state:approved` | 5 | Blue | — |
+| Ready | `state:ready` | 10 | Green | — |
+| In Progress | `state:in-progress` | **5** | Yellow | WIP exceeded |
+| In Review | `state:in-review` | **5** | Orange | > 48h = stale |
+| Done | `state:done` | ∞ | Purple | — |
+| Released | `state:released` | ∞ | Teal | — |
+| **Blocked** | `state:blocked` | ∞ | **Red** | **Immediate** |
 
-**Swimlanes:** By Assignee
+**Swimlanes:** By Assignee (shows individual workload)
 
-#### Roadmap View
+**Competitive Edge:** Single view matches state machine — no drift between board and reality
 
-**Purpose:** Timeline-based planning for leadership
+#### Roadmap View — Executive/Client View
+
+**Purpose:** Timeline-based planning for leadership and client communication
 
 **Configuration:**
 - X-axis: Time (weeks or months)
-- Grouping: Phase or Milestone
+- Grouping: Phase → Milestone
 - Color: Priority
 - Filter: type:epic OR type:story
 
 **Layout:**
 ```
         Jan W1      Jan W2      Jan W3      Jan W4      Feb W1
-Phase 1 ├── Epic 1 ─────────────────────────────────────────┤
-        │   ├── Story 1.1 ──────────┤
-        │   ├── Story 1.2 ──────────────────────┤
-        │   └── Story 1.3 ──────────────────────────────────┤
-Phase 2                                         ├── Epic 2 ─...
+Phase 1 ├── Epic 1: Core Workflow ────────────────────────────┤
+        │   ├── Story 1.1: State Machine ────────┤
+        │   ├── Story 1.2: Role Definitions ──────────────┤
+        │   └── Story 1.3: Space Structure ────────────────────┤
+Phase 2                                     ├── Epic 2: Enforcement ─...
 ```
 
-#### Backlog View
+**Competitive Edge:** Executives see progress without separate tools or BI
+
+#### Backlog View — PO/PM Planning
 
 **Purpose:** Full list of all work items with filtering
 
