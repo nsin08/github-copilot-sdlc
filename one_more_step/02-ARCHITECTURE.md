@@ -1,24 +1,25 @@
 # System Architecture
-## SDLC Governance Control Plane — Technical Blueprint for Market Dominance
+## SDLC Governance Control Plane — Technical Blueprint
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Author:** Architect  
 **Status:** Approved  
+**Audience:** Product / sales / diligence  
 **Classification:** Confidential — Competitive Strategy  
 
 ---
 
 ## Strategic Architecture Principles
 
-> **This architecture is designed to create insurmountable competitive advantages.**
+> **This architecture prioritizes auditability, adoption, and defensible differentiation.**
 
 | Principle | Strategic Rationale |
 |-----------|---------------------|
-| **GitHub-Native Only** | Zero new tools = zero adoption friction = faster sales cycles |
-| **Enforcement at Every Layer** | Competitors advise; we block. This is the moat. |
-| **Cryptographic Audit Trail** | Immutable logs with HMAC = competitor-proof compliance |
-| **AI-First Governance** | First-mover in governed AI-assisted development |
+| **GitHub-First Core** | No required new tools/UI = low adoption friction; integrations remain optional |
+| **Enforcement at Every Layer** | Enforcement-first controls where feasible (gates over guidance) |
+| **Cryptographic Audit Trail** | Tamper-evident logs (HMAC) to support audits |
+| **AI-First Governance** | AI-assisted development under the same controls and audit trail |
 | **Modular Compliance** | Plug-and-play frameworks (HIPAA, SOX, CMMC) = faster expansion |
 
 ---
@@ -30,7 +31,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    SDLC GOVERNANCE CONTROL PLANE                            │
-│                    "The Platform That Makes Competitors Irrelevant"         │
+│                    "GitHub-first governed SDLC control plane"              │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
@@ -43,16 +44,16 @@
 │  └─────────────────────────────────────────────────────────────────────┘  │
 │                                    ↕                                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
-│  │                      ENFORCEMENT LAYER (THE MOAT)                    │  │
+│  │                      ENFORCEMENT LAYER (GATES)                       │  │
 │  │  ┌─────────────────────────────────────────────────────────────┐    │  │
 │  │  │ State Machine │ Approval Gates │ Merge Controls │ Security   │    │  │
 │  │  │ (Blocks skip) │ (Role-based)   │ (CODEOWNER)   │ (PenTest)   │    │  │
 │  │  └─────────────────────────────────────────────────────────────┘    │  │
-│  │  WHY: Competitors report violations. We prevent them.               │  │
+│  │  WHY: Prefer prevention where feasible; otherwise detect and prove. │  │
 │  └─────────────────────────────────────────────────────────────────────┘  │
 │                                    ↕                                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
-│  │                      AUDIT LAYER (COMPLIANCE MOAT)                   │  │
+│  │                      AUDIT LAYER (EVIDENCE)                          │  │
 │  │  ┌─────────────────────────────────────────────────────────────┐    │  │
 │  │  │ Immutable Logs │ HMAC Signing │ Hash Chain │ Evidence Gen    │    │  │
 │  │  │ (Append-only)  │ (Tamper-proof)│ (Integrity)│ (One-click)    │    │  │
@@ -66,7 +67,7 @@
 │  │  │ Role Context │ Permission Bounds │ Agentic Workflows │ Spaces│    │  │
 │  │  │ (Scoped AI)  │ (No merge auth)   │ (Same rules)     │(Docs)  │    │  │
 │  │  └─────────────────────────────────────────────────────────────┘    │  │
-│  │  WHY: No competitor has solved AI + compliance. We have.            │  │
+│  │  WHY: AI governance is early; design for controlled, auditable use. │  │
 │  └─────────────────────────────────────────────────────────────────────┘  │
 │                                    ↕                                       │
 │  ┌─────────────────────────────────────────────────────────────────────┐  │

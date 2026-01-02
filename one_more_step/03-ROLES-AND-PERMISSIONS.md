@@ -1,26 +1,27 @@
 # Roles and Permissions
-## SDLC Governance Control Plane — The Human Firewall
+## SDLC Governance Control Plane — Roles, Approvals, and RBAC
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Authors:** Project Manager + Architect  
 **Status:** Approved  
+**Audience:** Product / sales / diligence  
 **Classification:** Confidential — Competitive Strategy  
 
 ---
 
 ## Strategic Context
 
-> **Every role is a checkpoint. Every permission is a gate. Together, they form an unbreakable chain of custody.**
+> **Every role is a checkpoint. Every permission is a gate. Together, they form an auditable chain of custody.**
 
-Competitors have roles. We have **enforced segregation of duties** that auditors love:
+Many teams define roles. Our focus is **enforceable segregation of duties** and an approval chain that is easy to audit:
 
-| What Auditors Ask | Our Answer | Competitor Answer |
+| What Auditors Ask | GitHub-first answer | Common failure mode |
 |-------------------|------------|-------------------|
-| "Who can merge to production?" | Only CODEOWNER. Enforced by GitHub. | "Anyone with write access, usually." |
-| "Can developers approve their own code?" | No. System prevents it. | "Policy says no. We hope they follow it." |
-| "How do you prove authorization?" | Immutable audit log with role verification. | "We can query the database." |
-| "What about AI assistants?" | Same rules. Logged. No merge authority. | "Uh... we're working on that." |
+| "Who can merge to production?" | CODEOWNER-only merges (via branch protection and review requirements) | Unclear / varies by repo or team |
+| "Can developers approve their own code?" | Separate approver requirements; prevent self-approval where possible | Policy-only controls without enforcement |
+| "How do you prove authorization?" | Exportable audit evidence (approvals + logs) tied to roles | Logs exist but are hard to export or verify |
+| "What about AI assistants?" | Same rules, logged actions, no merge authority | AI usage is often undefined and unaudited |
 
 ---
 

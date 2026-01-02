@@ -1,24 +1,25 @@
 # Compliance Mapping
-## SDLC Governance Control Plane — The Compliance Moat
+## SDLC Governance Control Plane — Compliance Mapping
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Author:** Architect + Product Owner  
 **Status:** Approved  
+**Audience:** Product / sales / diligence  
 **Classification:** Confidential — Competitive Strategy  
 
 ---
 
 ## Strategic Context
 
-> **Compliance is not a feature. It's the business model.**
+> **Compliance is a core buying driver in regulated SDLC.**
 
-The $47B+ compliance software market is fragmented, manual, and painful. We make it automatic:
+Third-party analysts estimate the global GRC/eGRC market at roughly USD 49B to 63B in 2024 (definition-dependent). See [10-MARKET-VIABILITY.md](10-MARKET-VIABILITY.md) for sources and definitions. We make it automatic:
 
 | Competitor Reality | Our Approach | Business Impact |
 |--------------------|--------------|-----------------|
-| 6-week audit prep | < 2 hours | 97% time savings |
-| Manual evidence collection | Automatic from workflow | Zero audit anxiety |
+| Audit prep often takes weeks | Reduce to hours (target) | Major time savings |
+| Manual evidence collection | Automatic from workflow | Reduced audit burden |
 | Spreadsheet control mappings | Embedded in platform | Always current |
 | Different tools per regulation | Modular compliance packs | One platform, all frameworks |
 | Consultants explain controls | Self-service documentation | Reduced professional services |
@@ -38,27 +39,27 @@ The $47B+ compliance software market is fragmented, manual, and painful. We make
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    COMPLIANCE TARGET MATRIX                                 │
-│                    "$47B+ Market Opportunity"                               │
+│                    "GRC/eGRC Market (2024)"                                 │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  SECTOR            REGULATION              TAM        OUR EDGE             │
+│  SECTOR            REGULATION / STANDARD               OUR EDGE             │
 │  ═══════════════════════════════════════════════════════════════════════   │
 │                                                                             │
-│  Healthcare        HIPAA                   $12B       Automatic PHI audit   │
-│  ($12B TAM)        FDA 21 CFR Part 11                 Part 11 evidence gen  │
+│  Healthcare        HIPAA                              Automatic PHI audit   │
+│                    FDA 21 CFR Part 11                 Part 11 evidence gen  │
 │                    SOC 2 Type II                      Control mapping       │
 │                                                                             │
-│  Financial         SOX                     $18B       One-click SOX report  │
-│  ($18B TAM)        PCI-DSS                            Zero CHD exposure     │
+│  Financial         SOX                               One-click SOX report  │
+│                    PCI-DSS                            Zero CHD exposure     │
 │                    GDPR                               Privacy by design     │
 │                    SOC 2 Type II                      Control inheritance   │
 │                                                                             │
-│  Defense           NIST 800-171            $9B        CUI handling built-in │
-│  ($9B TAM)         CMMC Level 2-3                     Pre-cert ready        │
+│  Defense           NIST 800-171                       CUI handling built-in │
+│                    CMMC Level 2-3                     Pre-cert ready        │
 │                    ITAR                               Geographic controls   │
 │                                                                             │
-│  Government        FedRAMP                 $8B        Authorization-ready   │
-│  ($8B TAM)         FISMA                              Continuous ATO        │
+│  Government        FedRAMP                            Authorization-ready   │
+│                    FISMA                              Continuous ATO        │
 │                    StateRAMP                          State compliance      │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -71,14 +72,14 @@ The $47B+ compliance software market is fragmented, manual, and painful. We make
 | **Enforced State Machine** | Authorized workflow | Label-based + Actions | Competitors advise; we enforce |
 | **HMAC-Signed Audit Trail** | Immutable records | JSONL + cryptographic signature | Database logs can be edited |
 | **CODEOWNER Merge** | Segregation of duties | Branch protection | Most allow any write access |
-| **Artifact Linking** | Evidence chain | Idea→Epic→Story→PR→Release | No competitor has end-to-end |
+| **Artifact Linking** | Evidence chain | Idea→Epic→Story→PR→Release | End-to-end traceability focus |
 | **Role-Based Gates** | Least privilege | 9 roles with approval flows | Typically 3-4 roles |
 | **Security Gates** | Vulnerability mgmt | PenTester approval required | Usually optional scanning |
-| **AI Agent Governance** | Emerging requirement | Same rules, logged actions | No competitor addresses this |
+| **AI Agent Governance** | Emerging requirement | Same rules, logged actions | Governed AI usage with audit trail |
 
 ---
 
-## 2. Healthcare Compliance — $12B TAM
+## 2. Healthcare Compliance
 
 ### 2.1 HIPAA (Health Insurance Portability and Accountability Act)
 
@@ -123,13 +124,13 @@ The $47B+ compliance software market is fragmented, manual, and painful. We make
 
 ---
 
-## 3. Financial Services Compliance — $18B TAM
+## 3. Financial Services Compliance
 
 ### 3.1 SOX (Sarbanes-Oxley Act)
 
 **Applicability:** Public companies, financial reporting systems
 
-**Sales Positioning:** "6-week SOX audit prep → 2 hours"
+**Sales Positioning:** "Reduce SOX audit prep from weeks to hours (target)"
 
 | SOX Requirement | Section | Platform Control | Evidence | Competitor Gap |
 |-----------------|---------|------------------|----------|----------------|
@@ -153,7 +154,7 @@ The $47B+ compliance software market is fragmented, manual, and painful. We make
 **Key Differentiator:** Pre-built SOX control mapping — auditors can verify in minutes.
 
 ### 1. System Description
-GitHub-native SDLC platform using Issues, PRs, Actions, and Projects
+GitHub-first SDLC platform (GitHub-native core) using Issues, PRs, Actions, and Projects
 for workflow management with enforced state machine.
 
 ### 2. Validation Scope

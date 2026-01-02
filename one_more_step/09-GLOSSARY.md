@@ -5,22 +5,25 @@
 **Date:** 2026-01-01  
 **Author:** Technical Writer  
 **Status:** Approved  
+**Audience:** Product / sales / diligence  
 **Classification:** Confidential — Competitive Strategy  
 
 ---
 
 ## Strategic Context
 
-> **Common language is the foundation of market leadership.**
+> **Common language supports consistent execution and clear communication.**
 
-This glossary defines terms as we use them — often with specific meanings that differentiate us from competitors:
+This glossary defines terms as we use them — often with meanings that are specific to this system:
+
+For acronym expansions and external reference links, see [98-ACRONYM-TERM-GLOSSARY.md](98-ACRONYM-TERM-GLOSSARY.md).
 
 | Term | Industry Usage | Our Usage | Why It Matters |
 |------|----------------|-----------|----------------|
 | Workflow | "Suggested process" | "Enforced state machine" | We block, not advise |
 | Audit trail | "Log files" | "Cryptographically signed, immutable evidence" | Tamper-proof |
 | Governance | "Policies and guidelines" | "System-enforced controls" | No human judgment needed |
-| AI Governance | "Emerging concept" | "Role-scoped agents with logged actions" | First-mover advantage |
+| AI Governance | "Emerging concept" | "Role-scoped agents with logged actions" | Early focus |
 
 ---
 
@@ -42,7 +45,7 @@ A checkpoint in the workflow where a specific role must approve before work can 
 Role responsible for system design, technical standards, and feasibility validation. Approves transition from Approved → Ready. **Authoritative on technical decisions; owns architecture file CODEOWNER entries.**
 
 ### Artifact
-Any work product created in the SDLC: Issues (Ideas, Epics, Stories), Pull Requests, Commits, Releases. **All artifacts are linked in an unbreakable chain — this is our traceability moat.**
+Any work product created in the SDLC: Issues (Ideas, Epics, Stories), Pull Requests, Commits, Releases. **All artifacts are linked in a traceability chain so evidence is easy to export and audit.**
 
 ### Artifact Linking
 The requirement that all artifacts reference their parent in the hierarchy. **Enforced via automation (Closes #N syntax). Orphan PRs are blocked from merge.**
@@ -86,10 +89,10 @@ Cybersecurity Maturity Model Certification. DoD framework for assessing contract
 GitHub file (`.github/CODEOWNERS`) that specifies individuals or teams responsible for code in specific paths. **Our enforcement layer — merge authority is defined here, not in user permissions.**
 
 ### Compliance
-Adherence to regulatory, legal, or organizational requirements. **We target: HIPAA, SOX, PCI-DSS, NIST 800-171, CMMC, FedRAMP — $47B+ TAM.**
+Adherence to regulatory, legal, or organizational requirements. **We target: HIPAA, SOX, PCI-DSS, NIST 800-171, CMMC, FedRAMP. Market context: GRC/eGRC is estimated at ~USD 49B to 63B in 2024 (definition-dependent). See [10-MARKET-VIABILITY.md](10-MARKET-VIABILITY.md).**
 
-### Competitive Moat
-Defensible advantage that competitors cannot easily replicate. **Our moats: Enforced state machine, HMAC audit trail, AI governance, GitHub-native simplicity.**
+### Differentiator
+Areas we aim to differentiate on over time. **Examples: enforcement-first workflow gates, tamper-evident audit logs, governed AI assistance, GitHub-first adoption.**
 
 ### Copilot Space
 A GitHub Copilot feature for storing context documents that agents can reference. **Our two-space architecture (space_framework + space_project) is our AI governance differentiator.**
@@ -150,7 +153,7 @@ Metric: Percentage of PRs approved on first review without changes. **Measures q
 ## G
 
 ### Gate
-See Approval Gate. **Every gate is a competitive differentiator — we enforce what competitors suggest.**
+See Approval Gate. **Every gate is designed to be enforceable, not just documented.**
 
 ### GDPR
 General Data Protection Regulation. EU regulation for data privacy and protection. **Privacy by design built into workflow.**

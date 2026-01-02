@@ -1,26 +1,27 @@
 # Phased Delivery Plan
-## SDLC Governance Control Plane — The Path to Market Leadership
+## SDLC Governance Control Plane — Delivery Plan (V1)
 
 **Document Version:** 1.0.0  
 **Date:** 2026-01-01  
 **Author:** Project Manager  
 **Status:** Approved  
+**Audience:** Product / sales / diligence  
 **Classification:** Confidential — Competitive Strategy  
 
 ---
 
 ## Strategic Context
 
-> **24 weeks to market leadership. No shortcuts. No compromises.**
+> **24-week plan to reach an audit-ready v1 with design partners (targets to validate).**
 
 | Phase | Goal | Success Metric | Investment |
 |-------|------|----------------|------------|
 | **Phase 1: Foundation** | Core platform operational | Design partner live | $200K |
 | **Phase 2: Enforcement** | Full automation, compliance-ready | Pass mock audit | $300K |
 | **Phase 3: Production** | Market ready, scalable | 3+ paying customers | $400K |
-| **Total** | **Market leadership position** | **$25M ARR in 3 years** | **$900K** |
+| **Total** | **Pilot-to-market readiness** | **Aspirational: $25M ARR in 3 years (requires validation)** | **$900K** |
 
-**Non-Negotiables:**
+**Guiding principles:**
 - Every feature must enforce, not advise
 - Audit trail from Day 1
 - AI governance designed in, not bolted on
@@ -30,12 +31,12 @@
 
 ## 1. Delivery Overview
 
-### 1.1 Timeline Summary — 24 Weeks to Market Leadership
+### 1.1 Timeline Summary — 24-week plan to audit-ready v1
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    DELIVERY TIMELINE (24 WEEKS)                             │
-│                    "From Zero to Market Leadership"                         │
+│                    "From zero to audit-ready v1"                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  Phase 1: Foundation        Phase 2: Enforcement      Phase 3: Production  │
@@ -77,10 +78,10 @@
 
 | Objective | Measure | Competitive Edge |
 |-----------|---------|------------------|
-| Define complete workflow state machine | All 7 states + 3 exception states documented | No competitor has enforced state machine |
-| Create all role definitions | 9 roles with permissions, RACI complete | More granular than any competitor |
+| Define complete workflow state machine | All 7 states + 3 exception states documented | Enforcement-first workflow baseline |
+| Create all role definitions | 9 roles with permissions, RACI complete | Granular segregation of duties |
 | Build two-space architecture | Both spaces structured, navigable | First-mover in AI governance context |
-| Create all templates | Issues, PRs, checklists production-ready | GitHub-native, no external tools |
+| Create all templates | Issues, PRs, checklists production-ready | GitHub-first, no required external tools |
 | Establish basic GitHub Projects | Kanban, roadmap, backlog views working | Single platform for all work |
 | Document compliance mapping | HIPAA, SOX, CMMC mappings complete | Audit-ready from start |
 
@@ -90,14 +91,14 @@
 
 | ID | Story | Owner | Points | Competitive Edge |
 |----|-------|-------|--------|------------------|
-| F1-001 | Define 7-state workflow machine | Architect | 5 | The core moat |
+| F1-001 | Define 7-state workflow machine | Architect | 5 | Core differentiator |
 | F1-002 | Document state transition rules | Architect | 3 | Enforced, not advised |
 | F1-003 | Define 9 roles with permissions | PM + Architect | 5 | Granular segregation |
 | F1-004 | Create RACI matrix | PM | 3 | Auditor-ready |
 | F1-005 | Design artifact linking model | Architect | 3 | End-to-end traceability |
 | F1-006 | Define approval gate requirements | PM | 3 | Every gate documented |
 
-**Sprint Goal:** Complete workflow and role design — the foundation of the moat
+**Sprint Goal:** Complete workflow and role design — the foundation of the system
 
 #### Sprint 1.2 (Weeks 3-4): Space Architecture
 
@@ -110,7 +111,7 @@
 | F1-011 | Create Roles folder content | PM | 5 | AI knows its boundaries |
 | F1-012 | Create navigation breadcrumbs | Architect | 2 | Agents never get lost |
 
-**Sprint Goal:** Complete AI context hub — first-mover advantage in governed AI
+**Sprint Goal:** Complete AI context hub — initial emphasis on governed AI
 
 #### Sprint 1.3 (Weeks 5-6): Templates & Configuration
 

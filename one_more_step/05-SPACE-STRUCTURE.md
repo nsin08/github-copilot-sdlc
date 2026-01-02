@@ -5,24 +5,25 @@
 **Date:** 2026-01-01  
 **Author:** Architect  
 **Status:** Approved  
+**Audience:** Product / sales / diligence  
 **Classification:** Confidential — Competitive Strategy  
 
 ---
 
 ## Strategic Context
 
-> **No competitor has solved AI governance. This is our first-mover advantage.**
+> **AI governance is still emerging; we design for role-scoped, auditable AI assistance.**
 
 The two-space architecture enables AI agents to operate within governed boundaries:
 
-| Competitive Challenge | Our Solution | Why It Wins |
+| Common challenge | Our approach | Why it helps |
 |-----------------------|--------------|-------------|
 | AI agents lack context | Role-specific spaces with workflow rules | Agents follow same rules as humans |
 | AI actions are uncontrolled | Permission boundaries in space docs | Agents can't merge, can't skip gates |
 | AI suggestions violate compliance | Embedded compliance rules in context | AI suggests compliant approaches |
 | Multiple projects, inconsistent governance | Shared framework space + project space | Governance scales across org |
 
-**The Two-Space Architecture is our AI governance differentiator:**
+**The Two-Space Architecture is our AI governance pattern:**
 - **space_framework** — Reusable governance (distributed to all projects)
 - **space_project** — Project-specific context (tech stack, architecture)
 
@@ -66,7 +67,7 @@ The two-space architecture enables AI agents to operate within governed boundari
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 1.2 Design Principles — Built for Market Leadership
+### 1.2 Design Principles — Built for Scale
 
 | Principle | Description | Competitive Edge |
 |-----------|-------------|------------------|
@@ -86,7 +87,7 @@ The two-space architecture enables AI agents to operate within governed boundari
 ```
 spaces/space_framework/
 ├── README.md                          (Master entry point — START HERE)
-├── VISION.md                          (Market leadership context)
+├── VISION.md                          (Vision context)
 │
 ├── Quick_Start/                       (Role-based entry points)
 │   ├── README.md                      (Role picker — "I am a...")
@@ -98,7 +99,7 @@ spaces/space_framework/
 │   ├── Im_a_Reviewer.md               (IC: Review, approve, block)
 │   ├── Im_DevOps.md                   (DevOps: Deploy, release, monitor)
 │   ├── Im_a_PenTester.md              (Security: Scan, approve, document)
-│   ├── Im_a_CODEOWNER.md              (CODEOWNER: THE merge authority)
+│   ├── Im_a_CODEOWNER.md              (CODEOWNER: final merge authority)
 │   └── Im_Stuck.md                    (Troubleshooting — common blockers)
 │
 ├── Rules/                             (ENFORCED governance rules)
@@ -109,7 +110,7 @@ spaces/space_framework/
 │   ├── Artifact_Linking.md            (Traceability rules — enforced)
 │   ├── Approval_Gates.md              (Who approves what — enforced)
 │   ├── Branch_Naming.md               (Git conventions — enforced)
-│   ├── CODEOWNER_Merge_Only.md        (THE critical rule)
+│   ├── CODEOWNER_Merge_Only.md        (critical rule)
 │   └── AI_Agent_Boundaries.md         (What AI can/cannot do)
 │
 ├── Roles/                             (Detailed role definitions)

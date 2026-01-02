@@ -5,22 +5,23 @@
 **Date:** 2026-01-01  
 **Author:** Architect  
 **Status:** Approved  
+**Audience:** Product / sales / diligence  
 **Classification:** Confidential — Competitive Strategy  
 
 ---
 
 ## Strategic Context
 
-> **This is the moat. Competitors advise on workflow. We enforce it.**
+> **We aim for enforcement-first workflow controls inside GitHub (not just documented process).**
 
-| What Competitors Do | What We Do | Why It Matters |
+| Common approach | GitHub-first approach | Why It Matters |
 |---------------------|------------|----------------|
 | Document workflows in wikis | Enforce with GitHub Actions | No human judgment required |
 | Generate reports after violations | Block violations before they happen | Compliance by design |
 | Rely on manual checklists | Automate every gate | Consistent, auditable, fast |
 | Hope people follow process | System prevents deviation | Zero unauthorized changes |
 
-**The Workflow State Machine is our primary competitive differentiator.** Every transition is:
+**The Workflow State Machine is a primary differentiator.** Every transition is:
 - **Role-gated** — Only authorized roles can trigger
 - **Condition-verified** — Prerequisites checked automatically
 - **Audit-logged** — Immutable record with HMAC signature

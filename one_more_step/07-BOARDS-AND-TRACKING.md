@@ -5,13 +5,14 @@
 **Date:** 2026-01-01  
 **Author:** Project Manager  
 **Status:** Approved  
+**Audience:** Product / sales / diligence  
 **Classification:** Confidential — Competitive Strategy  
 
 ---
 
 ## Strategic Context
 
-> **Visibility is control. Control is compliance. Compliance is revenue.**
+> **Visibility supports control, and control supports compliance.**
 
 GitHub Projects becomes the single source of truth for work status, metrics, and reporting:
 
