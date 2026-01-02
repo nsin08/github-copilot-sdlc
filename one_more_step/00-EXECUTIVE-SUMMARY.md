@@ -247,7 +247,6 @@ Market sizing is covered in [10-MARKET-VIABILITY.md](10-MARKET-VIABILITY.md). Pe
 | 06 | [Phased Delivery Plan](06-PHASED-DELIVERY-PLAN.md) | Roadmap, sprints, backlog | Project Manager |
 | 07 | [Boards & Tracking](07-BOARDS-AND-TRACKING.md) | GitHub Projects setup | Project Manager |
 | 08 | [Compliance Mapping](08-COMPLIANCE-MAPPING.md) | Regulatory alignment | Architect |
-| 09 | [Glossary](09-GLOSSARY.md) | Terms and definitions | All |
 | 10 | [Market Viability](10-MARKET-VIABILITY.md) | Source-backed market sizing & claim hygiene | Product Owner |
 | 50 | [Compliance Catalog](50-COMPLIANCE-SOFTWARE-DEV.md) | Compliance list with sources (SDLC-relevant) | Product |
 | 98 | [Acronym & Term Glossary](98-ACRONYM-TERM-GLOSSARY.md) | Acronyms/terms used across docs + external links | All |

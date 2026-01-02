@@ -68,7 +68,7 @@
 │  │Client│         │   PM    │       │   IC    │      │Reviewer │
 │  └──────┘         └─────────┘       └─────────┘      └─────────┘
 │                                                                             │
-│  🔒 EVERY ARROW = ENFORCED GATE | NO ARROW = BLOCKED TRANSITION            │
+│   EVERY ARROW = ENFORCED GATE | NO ARROW = BLOCKED TRANSITION            │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -144,7 +144,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body: '🚫 **BLOCKED**: Only Client role can approve Ideas. Actor: @' + context.actor
+                body: ' **BLOCKED**: Only Client role can approve Ideas. Actor: @' + context.actor
               });
               
               core.setFailed('Unauthorized approval attempt blocked');
@@ -160,9 +160,8 @@ jobs:
               actor: context.actor,
               issue: context.issue.number,
               hmac: '' // Generate HMAC
-            };
-            console.log('AUDIT:', JSON.stringify(auditEntry));
-```
+             };
+             console.log('AUDIT:', JSON.stringify(auditEntry));
               core.setFailed('Only Clients can approve ideas');
               // Remove label
               await github.rest.issues.removeLabel({
@@ -198,7 +197,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: '✅ Idea approved by @' + context.actor + '. @org/product please create Epic.'
+              body: 'Pass Idea approved by @' + context.actor + '. @org/product please create Epic.'
             });
 ```
 
@@ -523,8 +522,8 @@ jobs:
 ### Evidence Mapping
 | Criterion | Evidence | Status |
 |-----------|----------|--------|
-| [Criterion 1] | [Test file:line or screenshot] | ✅/❌ |
-| [Criterion 2] | [Test file:line or screenshot] | ✅/❌ |
+| [Criterion 1] | [Test file:line or screenshot] | Pass/Fail |
+| [Criterion 2] | [Test file:line or screenshot] | Pass/Fail |
 ```
 
 ### 4.2 DoD Enforcement
@@ -563,7 +562,7 @@ jobs:
             }
             
             // Check evidence mapping
-            if (!body.includes('| Criterion |') || !body.includes('| ✅')) {
+            if (!body.includes('| Criterion |') || !body.includes('| Pass')) {
               core.setFailed('Evidence mapping required');
             }
 ```

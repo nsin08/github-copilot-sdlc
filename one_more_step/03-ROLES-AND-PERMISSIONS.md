@@ -224,17 +224,17 @@ Many teams define roles. Our focus is **enforceable segregation of duties** and 
 
 | Permission | Client | PO | PM | Architect | IC | DevOps | PenTest | CODEOWNER |
 |------------|--------|----|----|-----------|-------|--------|---------|-----------|
-| Read repo | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Create issues | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Label issues | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Assign issues | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Create branches | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Create PRs | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Approve PRs | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Merge PRs | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Manage Projects | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ |
-| Create Releases | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Admin settings | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Read repo | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Create issues | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Label issues | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Assign issues | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Create branches | No | No | No | Yes | Yes | Yes | Yes | Yes |
+| Create PRs | No | No | No | Yes | Yes | Yes | Yes | Yes |
+| Approve PRs | No | No | No | Yes | Yes | Yes | Yes | Yes |
+| Merge PRs | No | No | No | No | No | No | No | Yes |
+| Manage Projects | No | Yes | Yes | Yes | No | No | No | Yes |
+| Create Releases | No | No | No | No | No | Yes | No | Yes |
+| Admin settings | No | No | No | No | No | No | No | Yes |
 
 ### 3.2 Workflow State Permissions
 

@@ -56,12 +56,12 @@ The two-space architecture enables AI agents to operate within governed boundari
 │  │  Updates: Governance team       │  │  Updates: Project team         │  │
 │  │  Audience: ALL agents           │  │  Audience: Project agents      │  │
 │  │                                 │  │                                 │  │
-│  │  🔒 AUTHORITATIVE               │  │  📚 CONTEXTUAL                 │  │
+│  │   AUTHORITATIVE               │  │   CONTEXTUAL                 │  │
 │  │  Rules cannot be overridden     │  │  Extends, never overrides      │  │
 │  │                                 │  │                                 │  │
 │  └─────────────────────────────────┘  └─────────────────────────────────┘  │
 │                                                                             │
-│  Agent Load Order: space_framework → space_project                          │
+│  Agent Load Order: space_framework -> space_project                          │
 │  If conflict: space_framework wins (governance is authoritative)            │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -82,84 +82,65 @@ The two-space architecture enables AI agents to operate within governed boundari
 
 ## 2. space_framework Structure
 
-### 2.1 Directory Layout — The Governance Library
+### 2.1 Directory Layout - The Governance Library
 
 ```
 spaces/space_framework/
-├── README.md                          (Master entry point — START HERE)
-├── VISION.md                          (Vision context)
-│
-├── Quick_Start/                       (Role-based entry points)
-│   ├── README.md                      (Role picker — "I am a...")
-│   ├── Im_a_Client.md                 (Client: Submit ideas, approve work)
-│   ├── Im_a_PO.md                     (PO: Define requirements, prioritize)
-│   ├── Im_a_PM.md                     (PM: Coordinate, assign, track)
-│   ├── Im_an_Architect.md             (Architect: Design, validate, guide)
-│   ├── Im_an_Implementer.md           (IC: Build, test, PR)
-│   ├── Im_a_Reviewer.md               (IC: Review, approve, block)
-│   ├── Im_DevOps.md                   (DevOps: Deploy, release, monitor)
-│   ├── Im_a_PenTester.md              (Security: Scan, approve, document)
-│   ├── Im_a_CODEOWNER.md              (CODEOWNER: final merge authority)
-│   └── Im_Stuck.md                    (Troubleshooting — common blockers)
-│
-├── Rules/                             (ENFORCED governance rules)
-│   ├── README.md                      (Rules index — all rules linked)
-│   ├── State_Machine.md               (Workflow states & transitions)
-│   ├── Definition_of_Ready.md         (DoR checklist — enforced)
-│   ├── Definition_of_Done.md          (DoD checklist — enforced)
-│   ├── Artifact_Linking.md            (Traceability rules — enforced)
-│   ├── Approval_Gates.md              (Who approves what — enforced)
-│   ├── Branch_Naming.md               (Git conventions — enforced)
-│   ├── CODEOWNER_Merge_Only.md        (critical rule)
-│   └── AI_Agent_Boundaries.md         (What AI can/cannot do)
-│
-├── Roles/                             (Detailed role definitions)
-│   ├── README.md                      (Role matrix)
-│   ├── Client.md                      
-│   ├── Product_Owner.md
-│   ├── Project_Manager.md
-│   ├── Architect.md
-│   ├── IC_Implementer.md
-│   ├── IC_Reviewer.md
-│   ├── DevOps.md
-│   ├── PenTester.md
-│   └── CODEOWNER.md
-│
-├── Templates/                         (Issue/PR templates)
-│   ├── README.md                      (Template index)
-│   ├── Idea_Template.md               
-│   ├── Epic_Template.md
-│   ├── Story_Template.md
-│   ├── PR_Template.md
-│   └── Review_Checklist.md
-│
-├── Compliance/                        (Regulatory mappings)
-│   ├── README.md                      (Compliance index)
-│   ├── HIPAA_Mapping.md               (Healthcare)
-│   ├── FDA_Part11_Mapping.md          (Medical devices)
-│   ├── SOX_Mapping.md                 (Financial)
-│   ├── PCI_DSS_Mapping.md             (Payments)
-│   ├── NIST_800_171_Mapping.md        (Defense CUI)
-│   ├── CMMC_Mapping.md                (Defense contractors)
-│   └── FedRAMP_Mapping.md             (Government cloud)
-│
-└── Runbooks/                          (Standard operating procedures)
-    ├── README.md                      (Runbook index)
-    ├── Handle_Blocked_State.md
-    ├── Emergency_Hotfix.md
-    ├── Rollback_Procedure.md
-    ├── Compliance_Audit_Prep.md
-    └── Onboard_New_Project.md
-```
-├── Compliance/
-│   ├── README.md                      (Compliance overview)
-│   ├── Audit_Trail.md                 (Audit requirements)
-│   ├── Security_Standards.md          (OWASP, etc.)
-│   └── Regulatory_Mapping.md          (HIPAA, SOX, etc.)
-└── _Internal/
-    ├── README.md                      (Internal notes - not for agents)
-    ├── Framework_Decisions.md
-    └── Evolution_Log.md
+|-- README.md                          (Master entry point - START HERE)
+|-- VISION.md                          (Vision context)
+|-- Quick_Start/                       (Role-based entry points)
+|   |-- README.md                      (Role picker - "I am a...")
+|   |-- Im_a_Client.md                 (Client: Submit ideas, approve work)
+|   |-- Im_a_PO.md                     (PO: Define requirements, prioritize)
+|   |-- Im_a_PM.md                     (PM: Coordinate, assign, track)
+|   |-- Im_an_Architect.md             (Architect: Design, validate, guide)
+|   |-- Im_an_Implementer.md           (IC: Build, test, PR)
+|   |-- Im_a_Reviewer.md               (IC: Review, approve, block)
+|   |-- Im_DevOps.md                   (DevOps: Deploy, release, monitor)
+|   |-- Im_a_PenTester.md              (Security: Scan, approve, document)
+|   |-- Im_a_CODEOWNER.md              (CODEOWNER: final merge authority)
+|   `-- Im_Stuck.md                    (Troubleshooting - common blockers)
+|-- Rules/                             (ENFORCED governance rules)
+|   |-- README.md                      (Rules index - all rules linked)
+|   |-- State_Machine.md               (Workflow states & transitions)
+|   |-- Definition_of_Ready.md         (DoR checklist - enforced)
+|   |-- Definition_of_Done.md          (DoD checklist - enforced)
+|   |-- Artifact_Linking.md            (Traceability rules - enforced)
+|   |-- Approval_Gates.md              (Who approves what - enforced)
+|   |-- Branch_Naming.md               (Git conventions - enforced)
+|   |-- CODEOWNER_Merge_Only.md        (critical rule)
+|   `-- AI_Agent_Boundaries.md         (What AI can/cannot do)
+|-- Roles/                             (Detailed role definitions)
+|   |-- README.md                      (Role matrix)
+|   |-- Client.md
+|   |-- Product_Owner.md
+|   |-- Project_Manager.md
+|   |-- Architect.md
+|   |-- IC_Implementer.md
+|   |-- IC_Reviewer.md
+|   |-- DevOps.md
+|   |-- PenTester.md
+|   `-- CODEOWNER.md
+|-- Compliance/                        (Compliance mappings & standards)
+|   |-- README.md
+|   |-- Security_Standards.md
+|   |-- HIPAA.md
+|   |-- SOX.md
+|   |-- CMMC.md
+|   |-- FedRAMP.md
+|   `-- FDA_Part11.md
+|-- Templates/                         (Issue and PR templates)
+|   |-- README.md
+|   |-- Idea_Template.md
+|   |-- Epic_Template.md
+|   |-- Story_Template.md
+|   |-- PR_Template.md
+|   |-- Definition_of_Ready.md
+|   `-- Definition_of_Done.md
+`-- Navigation/                        (Cross-links and entry points)
+    |-- README.md
+    |-- Role_Index.md
+    `-- Compliance_Index.md
 ```
 
 ### 2.2 Role-Based Entry Points
@@ -172,8 +153,8 @@ spaces/space_framework/
 **Your Role:** Build features with high quality, security, and test coverage.
 
 ## Load Context
-1. ✅ You're in space_framework (governance rules)
-2. 📂 Also load: space_project (tech stack, patterns)
+1. You are in `space_framework/` (governance rules)
+2. Also load `space_project/` (tech stack, patterns)
 
 ## Your Workflow
 
@@ -211,13 +192,13 @@ git checkout -b feature/<story-id>-<slug>
 ### Step 7: Done
 - CODEOWNER merges when approved
 - Issue auto-closes
-- Celebrate! 🎉
+- Celebrate (optional)
 
 ## Key Rules
-- ❌ Cannot self-approve PRs
-- ❌ Cannot merge (CODEOWNER only)
-- ✅ Can request reviews
-- ✅ Can approve peer PRs
+- Cannot self-approve PRs
+- Cannot merge (CODEOWNER only)
+- Can request reviews
+- Can approve peer PRs
 
 ## Related Docs
 - [Definition of Done](../Rules/Definition_of_Done.md)
@@ -233,49 +214,49 @@ git checkout -b feature/<story-id>-<slug>
 
 ```
 spaces/space_project/
-├── README.md                          (Project overview)
-├── Architecture/
-│   ├── README.md                      (Architecture index)
-│   ├── System_Overview.md             (High-level design)
-│   ├── Component_Diagram.md           (Service boundaries)
-│   ├── Data_Model.md                  (Database schema)
-│   ├── API_Contracts.md               (API specifications)
-│   └── ADR/                           (Architecture Decision Records)
-│       ├── 001_Database_Selection.md
-│       ├── 002_Auth_Strategy.md
-│       └── Template.md
-├── Tech_Stack/
-│   ├── README.md                      (Tech stack overview)
-│   ├── Backend/
-│   │   ├── Language_Guide.md          (Python/Go/etc.)
-│   │   ├── Framework_Patterns.md      (FastAPI/Django/etc.)
-│   │   ├── Testing_Patterns.md
-│   │   └── Database_Guide.md
-│   ├── Frontend/
-│   │   ├── Framework_Guide.md         (React/Vue/etc.)
-│   │   ├── Component_Patterns.md
-│   │   ├── State_Management.md
-│   │   └── Testing_Guide.md
-│   └── Infrastructure/
-│       ├── Cloud_Provider.md          (AWS/Azure/GCP)
-│       ├── Container_Guide.md         (Docker/K8s)
-│       └── CI_CD_Pipeline.md
-├── Runbooks/
-│   ├── README.md                      (Runbook index)
-│   ├── Local_Development.md           (Dev environment setup)
-│   ├── Build_and_Test.md              (Build commands)
-│   ├── Deployment.md                  (Deploy procedures)
-│   ├── Troubleshooting.md             (Common issues)
-│   └── Incident_Response.md           (Production issues)
-├── External_References/
-│   ├── README.md                      (Reference index)
-│   ├── Industry_Standards.md          (OWASP, etc.)
-│   ├── OSS_Patterns.md                (Open source references)
-│   └── Regulatory_Context.md          (Sector-specific)
-└── _Team/
-    ├── README.md                      (Team notes - internal)
-    ├── Onboarding.md
-    └── Contact_List.md
+|-- README.md                          (Project overview)
+|-- Architecture/
+|   |-- README.md                      (Architecture index)
+|   |-- System_Overview.md             (High-level design)
+|   |-- Component_Diagram.md           (Service boundaries)
+|   |-- Data_Model.md                  (Database schema)
+|   |-- API_Contracts.md               (API specifications)
+|   `-- ADR/                           (Architecture Decision Records)
+|       |-- 001_Database_Selection.md
+|       |-- 002_Auth_Strategy.md
+|       `-- Template.md
+|-- Tech_Stack/
+|   |-- README.md                      (Tech stack overview)
+|   |-- Backend/
+|   |   |-- Language_Guide.md          (Python/Go/etc.)
+|   |   |-- Framework_Patterns.md      (FastAPI/Django/etc.)
+|   |   |-- Testing_Patterns.md
+|   |   `-- Database_Guide.md
+|   |-- Frontend/
+|   |   |-- Framework_Guide.md         (React/Vue/etc.)
+|   |   |-- Component_Patterns.md
+|   |   |-- State_Management.md
+|   |   `-- Testing_Guide.md
+|   `-- Infrastructure/
+|       |-- Cloud_Provider.md          (AWS/Azure/GCP)
+|       |-- Container_Guide.md         (Docker/K8s)
+|       `-- CI_CD_Pipeline.md
+|-- Runbooks/
+|   |-- README.md                      (Runbook index)
+|   |-- Local_Development.md           (Dev environment setup)
+|   |-- Build_and_Test.md              (Build commands)
+|   |-- Deployment.md                  (Deploy procedures)
+|   |-- Troubleshooting.md             (Common issues)
+|   `-- Incident_Response.md           (Production issues)
+|-- External_References/
+|   |-- README.md                      (Reference index)
+|   |-- Industry_Standards.md          (OWASP, etc.)
+|   |-- OSS_Patterns.md                (Open source references)
+|   `-- Regulatory_Context.md          (Sector-specific)
+`-- _Team/
+    |-- README.md                      (Team notes - internal)
+    |-- Onboarding.md
+    `-- Contact_List.md
 ```
 
 ### 3.2 Project-Specific Entry Point
@@ -313,7 +294,7 @@ spaces/space_project/
 
 This project follows the **github-copilot-sdlc** framework.
 
-**Workflow:** Idea → Approved → Ready → In Progress → In Review → Done → Released
+**Workflow:** Idea -> Approved -> Ready -> In Progress -> In Review -> Done -> Released
 
 **Rules:** See [space_framework/Rules/](../space_framework/Rules/)
 
@@ -389,14 +370,14 @@ Each document includes navigation breadcrumb:
 
 | Content Type | space_framework | space_project | Git Source |
 |--------------|-----------------|---------------|------------|
-| Workflow rules | ✅ Summary + link | ❌ | ✅ Full details |
-| Role guides | ✅ Quick start | ❌ | ✅ Full definition |
-| Templates | ✅ Index + link | ❌ | ✅ Templates |
-| Tech stack | ❌ | ✅ Full guides | ❌ |
-| Architecture | ❌ | ✅ Full design | Optional |
-| Runbooks | ❌ | ✅ Full procedures | ❌ |
-| Compliance | ✅ Standards | ✅ Sector-specific | ✅ Mapping |
-| ADRs | ❌ | ✅ Project ADRs | Optional |
+| Workflow rules | Yes Summary + link | No | Yes Full details |
+| Role guides | Yes Quick start | No | Yes Full definition |
+| Templates | Yes Index + link | No | Yes Templates |
+| Tech stack | No | Yes Full guides | No |
+| Architecture | No | Yes Full design | Optional |
+| Runbooks | No | Yes Full procedures | No |
+| Compliance | Yes Standards | Yes Sector-specific | Yes Mapping |
+| ADRs | No | Yes Project ADRs | Optional |
 
 ### 5.2 Document Format
 
@@ -467,3 +448,6 @@ Each document includes navigation breadcrumb:
 
 **Previous Document:** [04-WORKFLOW-SPECIFICATION.md](04-WORKFLOW-SPECIFICATION.md)  
 **Next Document:** [06-PHASED-DELIVERY-PLAN.md](06-PHASED-DELIVERY-PLAN.md)
+
+
+

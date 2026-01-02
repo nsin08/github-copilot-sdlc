@@ -47,7 +47,7 @@ GitHub Projects becomes the single source of truth for work status, metrics, and
 │  ┌─────────────────────────────────────────────────────────────────────┐  │
 │  │                           VIEWS                                      │  │
 │  ├──────────────────┬──────────────────┬──────────────────┬────────────┤  │
-│  │ 🗂️ Kanban        │ 📅 Roadmap       │ 📋 Backlog       │ 📊 Metrics │  │
+│  │ ️ Kanban        │  Roadmap       │  Backlog       │  Metrics │  │
 │  │ (Current Work)   │ (Timeline)       │ (All Items)      │ (KPIs)     │  │
 │  ├──────────────────┼──────────────────┼──────────────────┼────────────┤  │
 │  │ Columns:         │ Grouped by:      │ Table with:      │ Charts:    │  │
@@ -58,7 +58,7 @@ GitHub Projects becomes the single source of truth for work status, metrics, and
 │  │ • In Review      │ • Week/Month     │ • Priority       │ • Burndown │  │
 │  │ • Done           │                  │ • Due Date       │            │  │
 │  │ • Released       │                  │                  │            │  │
-│  │ • BLOCKED ⚠️     │                  │                  │            │  │
+│  │ • BLOCKED Warn     │                  │                  │            │  │
 │  └──────────────────┴──────────────────┴──────────────────┴────────────┘  │
 │                                                                             │
 │  Custom Fields (Synced with Labels):                                        │
@@ -431,10 +431,10 @@ const leadTimeReport = async () => {
 
 | Metric | Planned | Actual | Status |
 |--------|---------|--------|--------|
-| Stories | [X] | [Y] | ✅/⚠️/❌ |
-| Points | [X] | [Y] | ✅/⚠️/❌ |
-| Lead Time (avg) | [X] days | [Y] days | ✅/⚠️/❌ |
-| Rework Rate | < 10% | [Y]% | ✅/⚠️/❌ |
+| Stories | [X] | [Y] | Pass/Warn/Fail |
+| Points | [X] | [Y] | Pass/Warn/Fail |
+| Lead Time (avg) | [X] days | [Y] days | Pass/Warn/Fail |
+| Rework Rate | < 10% | [Y]% | Pass/Warn/Fail |
 
 ## Completed Stories
 
@@ -471,7 +471,7 @@ const leadTimeReport = async () => {
 # Executive Summary: [Month/Quarter]
 
 **Reporting Period:** [Start] - [End]  
-**Project Status:** 🟢 On Track / 🟡 At Risk / 🔴 Blocked  
+**Project Status:**  On Track /  At Risk /  Blocked  
 
 ## Key Metrics
 
@@ -487,8 +487,8 @@ const leadTimeReport = async () => {
 
 | Phase | Status | Completion | Due |
 |-------|--------|------------|-----|
-| Phase 1: Foundation | ✅ Complete | 100% | Week 8 |
-| Phase 2: Enforcement | 🔄 In Progress | [X]% | Week 16 |
+| Phase 1: Foundation | Pass Complete | 100% | Week 8 |
+| Phase 2: Enforcement |  In Progress | [X]% | Week 16 |
 | Phase 3: Production | ⏳ Planned | 0% | Week 24 |
 
 ## Milestone Status

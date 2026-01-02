@@ -174,7 +174,6 @@ for workflow management with enforced state machine.
 - Branch protection rule screenshots
 - CODEOWNERS file
 - HMAC verification script output
-```
 
 ---
 
@@ -186,12 +185,12 @@ for workflow management with enforced state machine.
 
 | SOX Requirement | Section | Platform Control | Evidence |
 |-----------------|---------|------------------|----------|
-| Internal controls | §302/404 | State machine, approvals | Workflow logs, approval records |
-| Segregation of duties | §404 | Role-based restrictions | RACI matrix, CODEOWNERS |
-| Change management | §404 | PR-only changes | Merge policy, branch protection |
-| Audit trail | §404 | Immutable logs | `.audit/` with HMAC |
-| Access controls | §404 | RBAC, least privilege | Team permissions |
-| Documentation | §302 | DoR/DoD checklists | Issue templates |
+| Internal controls | 302/404 | State machine, approvals | Workflow logs, approval records |
+| Segregation of duties | 404 | Role-based restrictions | RACI matrix, CODEOWNERS |
+| Change management | 404 | PR-only changes | Merge policy, branch protection |
+| Audit trail | 404 | Immutable logs | `.audit/` with HMAC |
+| Access controls | 404 | RBAC, least privilege | Team permissions |
+| Documentation | 302 | DoR/DoD checklists | Issue templates |
 
 **SOX Control Matrix:**
 
@@ -290,15 +289,15 @@ for workflow management with enforced state machine.
 
 | CMMC Level | Domain | Platform Control | Status |
 |------------|--------|------------------|--------|
-| Level 2 | Access Control (AC) | RBAC, CODEOWNERS | ✅ Implemented |
-| Level 2 | Audit (AU) | Audit trail | ✅ Implemented |
-| Level 2 | Config Mgmt (CM) | State machine, PR-only | ✅ Implemented |
-| Level 2 | Identification (IA) | GitHub auth, 2FA | ✅ Implemented |
-| Level 2 | Incident Response (IR) | Security workflow | ✅ Implemented |
-| Level 2 | Media Protection (MP) | GitHub encryption | ✅ GitHub-managed |
-| Level 2 | Risk Assessment (RA) | Security scanning | ✅ Implemented |
-| Level 2 | Security Assessment (CA) | Automated validation | ✅ Implemented |
-| Level 3 | All above + enhanced | Additional controls | ⚠️ Requires Enterprise |
+| Level 2 | Access Control (AC) | RBAC, CODEOWNERS | Implemented |
+| Level 2 | Audit (AU) | Audit trail | Implemented |
+| Level 2 | Config Mgmt (CM) | State machine, PR-only | Implemented |
+| Level 2 | Identification (IA) | GitHub auth, 2FA | Implemented |
+| Level 2 | Incident Response (IR) | Security workflow | Implemented |
+| Level 2 | Media Protection (MP) | GitHub encryption | GitHub-managed |
+| Level 2 | Risk Assessment (RA) | Security scanning | Implemented |
+| Level 2 | Security Assessment (CA) | Automated validation | Implemented |
+| Level 3 | All above + enhanced | Additional controls | Requires Enterprise |
 
 ### 4.3 ITAR (International Traffic in Arms Regulations)
 
@@ -358,16 +357,16 @@ for workflow management with enforced state machine.
 
 | Platform Control | HIPAA | Part 11 | SOX | PCI | NIST 171 | CMMC | FedRAMP |
 |------------------|-------|---------|-----|-----|----------|------|---------|
-| State machine | ✓ | ✓ | ✓ | ✓ | 3.4 | CM | CM |
-| RBAC/CODEOWNERS | ✓ | ✓ | ✓ | ✓ | 3.1 | AC | AC |
-| Audit trail | ✓ | ✓ | ✓ | ✓ | 3.3 | AU | AU |
-| HMAC signing | ✓ | ✓ | ✓ | - | 3.14 | SI | SI |
-| PR-only merge | ✓ | ✓ | ✓ | ✓ | 3.4 | CM | CM |
-| Security scanning | - | - | - | ✓ | 3.11 | RA | RA |
-| Signed commits | - | ✓ | ✓ | - | 3.5 | IA | IA |
-| DoR/DoD checklists | - | ✓ | ✓ | ✓ | 3.4 | CM | CM |
-| Artifact linking | ✓ | ✓ | ✓ | ✓ | 3.3 | AU | AU |
-| Release approval | ✓ | ✓ | ✓ | ✓ | 3.4 | CM | CM |
+| State machine | Yes | Yes | Yes | Yes | 3.4 | CM | CM |
+| RBAC/CODEOWNERS | Yes | Yes | Yes | Yes | 3.1 | AC | AC |
+| Audit trail | Yes | Yes | Yes | Yes | 3.3 | AU | AU |
+| HMAC signing | Yes | Yes | Yes | - | 3.14 | SI | SI |
+| PR-only merge | Yes | Yes | Yes | Yes | 3.4 | CM | CM |
+| Security scanning | - | - | - | Yes | 3.11 | RA | RA |
+| Signed commits | - | Yes | Yes | - | 3.5 | IA | IA |
+| DoR/DoD checklists | - | Yes | Yes | Yes | 3.4 | CM | CM |
+| Artifact linking | Yes | Yes | Yes | Yes | 3.3 | AU | AU |
+| Release approval | Yes | Yes | Yes | Yes | 3.4 | CM | CM |
 
 ### 6.2 Gap Analysis
 
@@ -551,4 +550,4 @@ jobs:
 ---
 
 **Previous Document:** [07-BOARDS-AND-TRACKING.md](07-BOARDS-AND-TRACKING.md)  
-**Next Document:** [09-GLOSSARY.md](09-GLOSSARY.md)
+**Next Document:** [98-ACRONYM-TERM-GLOSSARY.md](98-ACRONYM-TERM-GLOSSARY.md)

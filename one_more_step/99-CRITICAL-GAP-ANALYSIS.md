@@ -18,11 +18,11 @@ The spec has several major categories of problems:
 
 | Category | Severity | Summary |
 |----------|----------|---------|
-| **Unvalidated Assumptions** | 🔴 Critical | Core claims about GitHub API capabilities aren't verified |
-| **Missing Implementation Details** | 🔴 Critical | YAML samples are incomplete/broken; no working code |
-| **Overclaimed Enforcement** | 🟠 High | "Enforcement" often means "automation" which can be bypassed |
-| **Compliance Gaps** | 🟠 High | Mappings exist but evidence generation doesn't |
-| **TAM/Market Claims** | 🟡 Medium | Numbers are plausible but unsourced; sales pitch, not analysis |
+| **Unvalidated Assumptions** | Critical | Core claims about GitHub API capabilities aren't verified |
+| **Missing Implementation Details** | Critical | YAML samples are incomplete/broken; no working code |
+| **Overclaimed Enforcement** | High | "Enforcement" often means "automation" which can be bypassed |
+| **Compliance Gaps** | High | Mappings exist but evidence generation doesn't |
+| **TAM/Market Claims** | Medium | Numbers are plausible but unsourced; sales pitch, not analysis |
 
 **Bottom Line:** Technical diligence would surface these gaps quickly. Address them before sharing externally.
 
@@ -267,11 +267,11 @@ To be fair, the spec does have strengths:
 
 ### What Not to Claim (Yet)
 
-- ❌ "Production-ready platform"
-- ❌ "Fully enforced workflow"
-- ❌ "Immutable audit trail" (until implemented)
-- ❌ "Pass any compliance audit" (until tested)
-- ❌ "Proven AI governance" (until deployed)
+- Not yet validated: "Production-ready platform"
+- Not yet validated: "Fully enforced workflow"
+- Not yet validated: "Immutable audit trail" (until implemented)
+- Not yet validated: "Pass any compliance audit" (until tested)
+- Not yet validated: "Proven AI governance" (until deployed)
 
 ---
 
