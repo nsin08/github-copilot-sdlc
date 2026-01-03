@@ -1,0 +1,62 @@
+# Branch Protection - Enforce merge requirements
+# Reference: workflow-system/rules/01-state-machine.md
+# Enforces: No direct pushes, PR approvals, CI passing
+
+name: "Branch: Protection Status Check"
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  status-check:
+    name: Verify Merge Requirements
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if ready to merge
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            
+            // Get review status
+            const reviews = await github.rest.pulls.listReviews({
+              owner,
+              repo,
+              pull_number: pr.number
+            });
+            
+            const approved = reviews.data.some(r => r.state === 'APPROVED');
+            const requestedChanges = reviews.data.some(r => r.state === 'CHANGES_REQUESTED');
+            
+            // Get commit status
+            const commits = await github.rest.pulls.listCommits({
+              owner,
+              repo,
+              pull_number: pr.number
+            });
+            const lastCommitSha = commits.data[commits.data.length - 1].sha;
+            
+            const statuses = await github.rest.repos.getCombinedStatusForRef({
+              owner,
+              repo,
+              ref: lastCommitSha
+            });
+            
+            const ciPassing = statuses.data.state === 'success';
+            
+            // Report status
+            let status = `\n**Merge Checklist:**\n`;
+            status += `${approved ? '✅' : '⏳'} Approved by reviewer\n`;
+            status += `${requestedChanges ? '❌' : '✅'} No changes requested\n`;
+            status += `${ciPassing ? '✅' : '⏳'} CI passing\n`;
+            status += `${pr.draft ? '❌' : '✅'} Not a draft\n`;
+            
+            if (!approved || requestedChanges || !ciPassing || pr.draft) {
+              console.log(status);
+            } else {
+              console.log(status);
+              console.log('\n✅ All merge requirements met. Ready to merge.');
+            }

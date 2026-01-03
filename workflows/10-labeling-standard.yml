@@ -1,0 +1,52 @@
+# Label Standard Enforcement
+# Ensures consistent labeling across issues and PRs
+
+name: "Labels: Standard Enforcement"
+
+on:
+  issues:
+    types: [opened, labeled, unlabeled]
+  pull_request:
+    types: [opened, labeled, unlabeled]
+
+jobs:
+  validate-labels:
+    name: Validate Issue/PR Labels
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue || context.payload.pull_request;
+            const labels = issue.labels.map(l => l.name);
+            
+            // Valid label categories
+            const validLabels = {
+              type: ['idea', 'epic', 'story', 'task', 'bug', 'feature', 'chore', 'docs', 'test'],
+              state: ['intake', 'spec-ready', 'in-progress', 'in-review', 'done', 'released'],
+              priority: ['priority-critical', 'priority-high', 'priority-medium', 'priority-low'],
+              size: ['size-xs', 'size-s', 'size-m', 'size-l', 'size-xl'],
+              status: ['blocked', 'on-hold', 'duplicate', 'wontfix', 'needs-review']
+            };
+            
+            const allValid = Object.values(validLabels).flat();
+            const invalid = labels.filter(l => !allValid.includes(l));
+            
+            if (invalid.length > 0) {
+              console.log(`⚠️  Unknown labels: ${invalid.join(', ')}`);
+              console.log(`\nValid labels by category:`);
+              Object.entries(validLabels).forEach(([cat, vals]) => {
+                console.log(`- ${cat}: ${vals.join(', ')}`);
+              });
+            }
+            
+            // Check for type label on issues
+            if (context.eventName === 'issues' && !context.payload.pull_request) {
+              const hasType = labels.some(l => validLabels.type.includes(l));
+              if (!hasType) {
+                core.warning(
+                  `⚠️  Issue #${issue.number} missing type label
+                  
+                  Add one of: ${validLabels.type.join(', ')}`);
+              }
+            }
